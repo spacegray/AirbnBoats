@@ -17,3 +17,6 @@ _AirbnBoats is a clone of Airbnb that provides a space for users to find and ren
 
 ## Reviews 
 * users may leave reviews on boat listings
+
+## Bonus Features
+* Search boat listings by location

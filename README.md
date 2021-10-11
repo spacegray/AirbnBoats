@@ -1,6 +1,6 @@
 # Welcome to AirbnBoats
 
-_AirbnBoats is a clone of Airbnb that provides a space for users to find and rent boats_
+_AirbnBoats is a clone of Airbnb that provides a space for users to find and rent exceptional boats_
 
 ## Features
 

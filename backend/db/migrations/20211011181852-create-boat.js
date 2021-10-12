@@ -12,8 +12,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      boatType: {
-        allowNull: true,
+      name: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       address: {
@@ -30,23 +30,19 @@ module.exports = {
       },
       country: {
         allowNull: true,
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING(20),
       },
       zipCode: {
         allowNull: true,
         type: Sequelize.INTEGER,
-      },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING,
       },
       price: {
         allowNull: false,
         type: Sequelize.DECIMAL,
       },
       img: {
-        allowNull: true,
-        type: Sequelize.STRING(500)
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

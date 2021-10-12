@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     state: DataTypes.STRING,
     country: DataTypes.STRING,
-    lat: DataTypes.DECIMAL,
-    lng: DataTypes.DECIMAL,
+    zipCode: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    price: DataTypes.DECIMAL
+    price: DataTypes.DECIMAL,
+    img: DataTypes.STRING
   }, {});
   Boat.associate = function(models) {
     // associations can be defined here

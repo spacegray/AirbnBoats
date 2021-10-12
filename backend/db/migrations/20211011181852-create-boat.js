@@ -13,6 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       boatType: {
+        allowNull: true,
         type: Sequelize.STRING,
       },
       address: {
@@ -21,20 +22,19 @@ module.exports = {
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(255),
       },
       state: {
-        allowNull: false,
-        type: Sequelize.STRING(20),
+        allowNull: true,
+        type: Sequelize.STRING(255),
       },
       country: {
-        type: Sequelize.STRING(20),
+        allowNull: true,
+        type: Sequelize.STRING(255),
       },
-      lat: {
-        type: Sequelize.DECIMAL,
-      },
-      lng: {
-        type: Sequelize.DECIMAL,
+      zipCode: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
       },
       name: {
         allowNull: false,
@@ -43,6 +43,10 @@ module.exports = {
       price: {
         allowNull: false,
         type: Sequelize.DECIMAL,
+      },
+      img: {
+        allowNull: true,
+        type: Sequelize.STRING(500)
       },
       createdAt: {
         allowNull: false,

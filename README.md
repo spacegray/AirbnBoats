@@ -1,6 +1,7 @@
-# Welcome to AirbnBoats
+# Welcome to <img src="frontend/images/AirBnBoats-logo.png" alt="airBnBoats-logo"/>
 
 _AirbnBoats is a clone of Airbnb that provides a space for users to find and rent exceptional boats_
+
 
 ## Features
 
@@ -20,3 +21,7 @@ _AirbnBoats is a clone of Airbnb that provides a space for users to find and ren
 
 ## Bonus Features
 * Search boat listings by location
+
+## DB Schema 
+<img src="frontend/images/db-schema.png" alt="db-schema"/>
+

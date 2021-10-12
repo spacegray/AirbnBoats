@@ -12,7 +12,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      boatType: {
+      name: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       address: {
@@ -28,21 +29,20 @@ module.exports = {
         type: Sequelize.STRING(20),
       },
       country: {
+        allowNull: true,
         type: Sequelize.STRING(20),
       },
-      lat: {
-        type: Sequelize.DECIMAL,
-      },
-      lng: {
-        type: Sequelize.DECIMAL,
-      },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING,
+      zipCode: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
       },
       price: {
         allowNull: false,
         type: Sequelize.DECIMAL,
+      },
+      img: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,

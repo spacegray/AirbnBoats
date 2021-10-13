@@ -20,7 +20,7 @@ const boats = useSelector((state) => Object.values(state.boats));
     dispatch(getOneBoat(id))
   }, [id, dispatch])
 
-  if (!listing) {
+  if (!boat) {
     return null;
   }
 

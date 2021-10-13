@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Boat.associate = function(models) {
-    // associations can be defined here
+   Boat.belongsTo(models.User, { foreignKey: "userId" });
   };
   return Boat;
 };

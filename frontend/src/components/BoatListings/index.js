@@ -23,6 +23,7 @@ function BoatListings() {
                   <NavLink key={boat.id} to={`/listings/${boat.id}`}>
                     <div className="boat__image__section">
                       <div className="boat__image">
+                        <h1> {boat.name} </h1>
                         <img className="image" src={boat.img} alt=""></img>
                       </div>
                     </div>

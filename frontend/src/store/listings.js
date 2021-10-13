@@ -15,15 +15,15 @@ export const getBoats = () => async (dispatch) => {
     const res = await fetch(`/api/listings`);
 
     if (res.ok) {
-        const listings = await Response.json();
+        const listings = await res.json();
         dispatch(load(listings))
     }
 };
 
 export const getOneBoat = (boatId) => async dispatch => {
-    const response = await fetch(`/api/listings/${boatId}`)
-    if (!response.ok) throw response;
-    let boat = await response.json();
+    const res = await fetch(`/api/listings/${boatId}`)
+    if (!res.ok) throw res;
+    let boat = await res.json();
     dispatch(addOneBoat(boat))
 }
 const initialState = {};

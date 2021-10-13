@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import BoatListings from "./components/BoatListings";
 import Navigation from "./components/Navigation";
+import BoatListingPage from "./components/BoatListingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path='/listings' exact>
             <BoatListings />
+          </Route>
+          <Route path='/listings/:id'>
+            <BoatListingPage />
           </Route>
         </Switch>
       )}

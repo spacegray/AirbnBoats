@@ -10,14 +10,21 @@ function BoatListingPage() {
   const {id} = useParams()
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
+const boats = useSelector((state) => Object.values(state.boats));
 
   const boat = useSelector(state => {
     return state.boats[id]
+    
   });
   useEffect(() => {
     dispatch(getOneBoat(id))
   }, [id, dispatch])
 
+  if (!listing) {
+    return null;
+  }
+
+console.log(boat)
 
   return (
     <>

@@ -12,7 +12,7 @@ module.exports = {
      "Bookings",
      [
        {
-         boatId: 26,
+         boatId: 4,
          userId: 1,
          startDate: new Date(),
          endDate: new Date(),
@@ -20,7 +20,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
-         boatId: 27,
+         boatId: 5,
          userId: 1,
          startDate: new Date(),
          endDate: new Date(),
@@ -28,7 +28,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
-         boatId: 29,
+         boatId: 6,
          userId: 1,
          startDate: new Date(),
          endDate: new Date(),
@@ -36,7 +36,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
-         boatId: 32,
+         boatId: 7,
          userId: 1,
          startDate: new Date(),
          endDate: new Date(),
@@ -44,7 +44,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
-         boatId: 33,
+         boatId: 1,
          userId: 4,
          startDate: new Date(),
          endDate: new Date(),
@@ -52,7 +52,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
-         boatId: 28,
+         boatId: 8,
          userId: 1,
          startDate: new Date(),
          endDate: new Date(),
@@ -60,15 +60,15 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
-         boatId: 30,
-         userId: 1,
+         boatId: 6,
+         userId: 2,
          startDate: new Date(),
          endDate: new Date(),
          createdAt: new Date(),
          updatedAt: new Date(),
        },
        {
-         boatId: 23,
+         boatId: 2,
          userId: 4,
          startDate: new Date(),
          endDate: new Date(),

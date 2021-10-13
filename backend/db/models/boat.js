@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       country: DataTypes.STRING,
       zipCode: DataTypes.INTEGER,
       price: DataTypes.DECIMAL,
-      img: DataTypes.STRING
+      img: DataTypes.STRING,
     },
     {}
   );
   Boat.associate = function(models) {
    Boat.belongsTo(models.User, { foreignKey: "userId" });
-   Boat.hasMany(models.Review, { foreignKey: "reviewId"})
+   Boat.hasMany(models.Review, { foreignKey: "userId"})
    Boat.hasMany(models.Booking, { foreignKey: "boatId" });
   };
   return Boat;

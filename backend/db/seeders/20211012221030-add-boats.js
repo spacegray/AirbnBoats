@@ -12,6 +12,7 @@ module.exports = {
      "Boats",
      [
        {
+         id: 1,
          userId: 1,
          name: "Trimaran",
          address: "13 Place St Francois",
@@ -25,6 +26,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 2,
          userId: 1,
          name: "Luxury Yacht",
          address: "1099 Bayside Dr",
@@ -38,6 +40,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 3,
          userId: 1,
          name: "Sail Yacht",
          address: "3030 Holiday Drive",
@@ -51,6 +54,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 4,
          userId: 4,
          name: "Tan Luxury Yacht",
          address: "46 Green Pleasure Pier",
@@ -64,6 +68,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 5,
          userId: 5,
          name: "Motor Yacht",
          address: "3030 Holiday Drive",
@@ -77,6 +82,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 6,
          userId: 6,
          name: "Small Sail Boat",
          address: "102 W Broadway,",
@@ -90,6 +96,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 7,
          userId: 7,
          name: "Fly Fishing Boat",
          address: "100 Frankfort Ave",
@@ -103,6 +110,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 8,
          userId: 4,
          name: "Aruba Fishing Boat",
          address: "L.G. Smith Blvd. 7",
@@ -116,6 +124,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 9,
          userId: 7,
          name: "Super Yacht",
          address: "4200 N Flagler Dr",
@@ -129,6 +138,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 10,
          userId: 4,
          name: "Aloha Sail",
          address: "L.G. Smith Blvd. 7",
@@ -142,6 +152,7 @@ module.exports = {
          updatedAt: new Date(),
        },
        {
+         id: 11,
          userId: 4,
          name: "Sail Away",
          address: "1099 Bayside Dr",

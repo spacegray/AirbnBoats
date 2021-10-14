@@ -24,7 +24,7 @@ const boats = useSelector((state) => Object.values(state.boats));
     return null;
   }
 
-console.log(boat)
+// console.log(boat)
 
   return (
     <>

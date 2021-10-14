@@ -29,13 +29,22 @@ const boats = useSelector((state) => Object.values(state.boats));
   return (
     <>
       <div className="boatList__section">
-        <h1>{boat.name}</h1>
-          <div className='image__section'>
-            <img className='boatImage' src={boat.img} alt=''>
-              
-            </img>
+        <div className="nav__panel"></div>
+        <div className="boat__details">
+          <h2>{boat.name}</h2>
+          <div className="boat__address">
+            {boat.address},{boat.city}, {boat.state} {boat.country}{" "}
+            {boat.zipCode}
           </div>
-
+          <div className="price__section">
+            <div className="listing__price">$ {boat.price} /day </div>
+          </div>
+          <div className="boat__image__section">
+            <div className="boat__image">
+              <img className="image" src={boat.img} alt=""></img>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

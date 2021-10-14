@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 
 import sessionReducer from "./session";
 import boatsReducer from "./listings";
+import reviewsReducer from "./reviews";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  boats: boatsReducer
+  boats: boatsReducer,
+  reviews: reviewsReducer
 });
 
 

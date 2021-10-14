@@ -28,6 +28,9 @@ function App() {
           <Route path='/listings/:id'>
             <BoatListingPage />
           </Route>
+          <Route path='/reviews'>
+      
+          </Route>
         </Switch>
       )}
     </>

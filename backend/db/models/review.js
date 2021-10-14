@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     review: DataTypes.STRING
   }, {});
   Review.associate = function(models) {
-    //  Review.belongsTo(models.User, { foreignKey: "userId" });
+     Review.belongsTo(models.User, { foreignKey: "userId" });
      Review.belongsTo(models.Boat, { foreignKey: "boatId" });
   };
   return Review;

@@ -15,9 +15,8 @@ const router = express.Router();
 // );
 
 router.get("/", asyncHandler(async function (req, res) {
-    const reviews = await db.Review.findAll({Boat})
+    const reviews = await db.Review.findAll()
     console.log(reviews);
-    console.log(Boat)
     return res.json(reviews)
 }))
 
@@ -75,12 +74,12 @@ router.delete('/:id', asyncHandler(async function (req, res) {
 
 // find by boatId
 router.get('/:id', asyncHandler(async function (req, res) {
-    const reviews = await db.Review.findaAll({
+    const reviews = await db.Review.findAll({
         where: {
             boatId: req.params.id
         },
-        include: { model: db.User },
-        order: [['updatedAt', 'DESC']]
+        // include: { model: db.User },
+        // order: [['updatedAt', 'DESC']]
     });
     return res.json(reviews)
 }))

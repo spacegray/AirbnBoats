@@ -13,7 +13,7 @@ _A clone of Airbnb that provides a space for users to find and rent exceptional 
 
 ## Bookings CRUD
 * book a boat 
-* based on location
+* Select duration of stay
 * delete booking
 
 ## Reviews CRUD

@@ -11,6 +11,7 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        refences: {model: 'Users'}
       },
       name: {
         allowNull: false,
@@ -22,11 +23,11 @@ module.exports = {
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(255),
       },
       state: {
-        allowNull: false,
-        type: Sequelize.STRING(20),
+        allowNull: true,
+        type: Sequelize.STRING(255),
       },
       country: {
         allowNull: true,

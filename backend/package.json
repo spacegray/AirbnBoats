@@ -8,7 +8,8 @@
     "sequelize-cli": "sequelize-cli",
     "start": "per-env",
     "start:development": "nodemon -r dotenv/config ./bin/www",
-    "start:production": "node ./bin/www"
+    "start:production": "node ./bin/www",
+    "db:drop": "npx dotenv sequelize-cli db:drop && npx dotenv sequelize-cli db:create && npx dotenv sequelize-cli db:migrate && npx dotenv sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "faker": "^5.5.3",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
     "per-env": "^1.0.2",

@@ -38,12 +38,10 @@ export const addReview = newReview => async dispatch => {
 
 export const getReviews = (id) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${id}`);
-
-    if (res.ok) {
-        const reviews = await res.json()
-        dispatch(load(reviews))
-        return getReviews;
-    }
+    const reviews = await res.json();
+    dispatch(load(reviews))
+    return res;
+    
 }
 export const updatedReview = (editedRev) => async dispatch => {
     const {id, userId, boatId, review } = editedRev;
@@ -109,10 +107,8 @@ const reviewsReducer = (state = initialState, action) => {
             }
         }
         case LOAD: {
-            const totalReviews = {};
-            action.reviews.forEach(review => {
-                totalReviews[review.id] = review;
-            });
+            newState.reviews = action.reviews
+            return newState;
         };
         case DELETE_ONE: {
             const newState = {

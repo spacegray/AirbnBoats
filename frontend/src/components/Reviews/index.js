@@ -11,12 +11,9 @@ function Reviews() {
 
     const reviews = useSelector((state) => ((Object.values(state.reviews))));
 
-    const currBoatReviews = reviews.filter(review => review.spotId === +id);
+    const currBoatReviews = reviews.filter(review => review.boatId === +id);
 
-    const filteredReviews = currBoatReviews.sort(function (a, b) {
-        return b.id - a.id;
-    })
-
+    
     const remove = (id) => {
         dispatch(deleteReview(id))
         window.alert('Review has been deleted')
@@ -33,15 +30,18 @@ function Reviews() {
     return (
         <>
         <div className='reviews__Section'>
-            {filteredReviews.map((review) => {
-                return (
-                    <div key={review?.id} className='review__section'>
-                        <h3>{review?.User?.username}</h3>
-                        <p>{review?.review}</p>
-                        </div>
-
-                )
-            })}
+            { currBoatReviews.length === 0 ? (
+                <h2>No reviews to display</h2>
+            ) : (
+                currBoatReviews.map((review) => (
+                        <div key={review.id} className='review__section'>
+                            <h3>{review.User.username}</h3>
+                            <p>{review.review}</p>
+                        </div>                         
+                ))              
+            )}
+            
+            
 
         </div>
         </>

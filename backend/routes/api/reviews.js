@@ -15,7 +15,9 @@ const router = express.Router();
 // );
 
 router.get("/", asyncHandler(async function (req, res) {
-    const reviews = await db.Review.findAll()
+    const reviews = await db.Review.findAll({
+        include: {model: User}
+    })
     console.log(reviews);
     return res.json(reviews)
 }))

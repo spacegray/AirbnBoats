@@ -12,12 +12,8 @@ function BoatListingPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const boat = useSelector((state) => state.boats[id]);
-  const reviews = useSelector((state) => state.reviews.reviews);
-  // const currBoatReviews = reviews.filter((review) => review.boatId === +id);
+  const reviews = useSelector((state) => state.reviews.totalReviews);
 
-  // const filteredReviews = currBoatReviews.sort(function (a, b) {
-  //   return b.id - a.id;
-  // });
 
 
   //   return state.boats[id];
@@ -52,18 +48,18 @@ function BoatListingPage() {
           <div className="review__table">
             <h1>Reviews</h1>
             <div className="reviewsList">
-              {reviews?.length === 0 ? (
+              {reviews ? Object.keys(reviews).length === 0 ? (
                 <h2>No reviews to display</h2>
               ) : (
-                reviews?.map((review) =>
-                  boat?.id === review?.boatId ? (
-                    <div key={review.id} className="review__section">
-                      <h3>{review?.User?.username}</h3>
-                      <p>{review?.review}</p>
+               Object.keys(reviews).map((key) =>
+                  boat?.id === reviews[key].boatId ? (
+                    <div key={reviews[key]} className="review__section">
+                      <h3>{reviews[key]?.User?.username}</h3>
+                      <p>{reviews[key].review}</p>
                     </div>
                   ) : null
                 )
-              )}
+              ): null}
             </div>
           </div>
         </div>

@@ -41,6 +41,7 @@ export const getReviews = (id) => async dispatch => {
 
     if (res.ok) {
         const reviews = await res.json()
+        console.log('this is the reviews', reviews)
         dispatch(load(reviews))
     }
     return getReviews;
@@ -89,9 +90,6 @@ const reviewsReducer = (state = initialState, action) => {
                     ...state,
                     [action.review.id]: action.review 
                 }
-                // const reviewlist = newState.list?.map(id => newState[id]);
-                // reviewList?.push(action.review);
-                // return newState;
             }
             return {
                 ...state,
@@ -113,6 +111,7 @@ const reviewsReducer = (state = initialState, action) => {
             action.reviews.forEach(review => {
                 totalReviews[review.id] = review;
             });
+            return {...state, totalReviews}
         };
         case DELETE_ONE: {
             const newState = {

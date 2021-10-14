@@ -1,25 +1,26 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const db = require('../../db/models');
+
+// const {Review} = require('.../../db/models')
+
 const router = express.Router();
-const {Review} = require('.../../db/models')
 
+// router.get(
+//   "/",
+//   asyncHandler(async (req, res) => {
+//     const reviews = await Review.findAll();
+//     return res.json({ reviews });
+//   })
+// );
 
-router.get(
-  "/",
-  asyncHandler(async (req, res) => {
-    const reviews = await Review.findAll();
-    return res.json({ reviews });
-  })
-);
+router.get("/", asyncHandler(async function (req, res) {
+    const reviews = await db.Review.findAll({
 
-// router.get("/", asyncHandler(async function (req, res) {
-//     const reviews = await db.Review.findAll({
-
-//     })
-//     return res.json(reviews)
-// }))
-// console.log(reviews);
+    })
+    return res.json(reviews)
+}))
+console.log(reviews);
 
 
 // create a review
@@ -84,3 +85,5 @@ router.get(
 //     });
 //     return res.json(reviews)
 // }))
+
+module.exports = router;

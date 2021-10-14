@@ -33,15 +33,17 @@ function BoatListingPage() {
     <>
       <div className="boatList__section">
         <div className="nav__panel"></div>
-        <div className="boat__details">
-          <h2>{boat?.name}</h2>
-          <div className="boat__address">
-            {boat?.address},{boat?.city}, {boat?.state} {boat?.country}{" "}
-            {boat?.zipCode}
-          </div>
-          <div className="price__section">
-            <div className="listing__price">$ {boat?.price} /day </div>
-          </div>
+        <div className="decription__container">
+            <div className="boat__details">
+              <h2>{boat?.name}</h2>
+              <div className="boat__address">
+                {boat?.address},{boat?.city}, {boat?.state} {boat?.country}{" "}
+                {boat?.zipCode}
+              </div>
+              <div className="price__section">
+                <div className="listing__price">$ {boat?.price} /day </div>
+              </div>
+            </div>
           <div className="boat__image__section">
             <div className="boat__image">
               <img className="image" src={boat?.img} alt=""></img>
@@ -59,7 +61,8 @@ function BoatListingPage() {
                       <h3>{review?.User?.username}</h3>
                       <p>{review?.review}</p>
                     </div>
-                  ) : null )
+                  ) : null
+                )
               )}
             </div>
           </div>

@@ -1,9 +1,14 @@
-/* .image {
-    height: 60%;
-    width: 60%;
+ .BoatListings__page .image {
+height: 157px;
+width: 259px;
+left: 293px;
+top: 123px;
+border-radius: 18px;
+
 }
 
 
+/*
 .BoatListings__page {
     background-color: black;
     display: flex;

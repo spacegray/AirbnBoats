@@ -54,9 +54,9 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          userId: 4,
+          userId: 7,
           boatId: 1,
-          review: "This yacht was exceptional",
+          review: "This yacht was amazing, great for large groups",
           createdAt: new Date(),
           updatedAt: new Date(),
         },

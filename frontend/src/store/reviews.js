@@ -46,22 +46,22 @@ export const getReviews = (id) => async dispatch => {
     }
     return getReviews;
 }
-export const updatedReview = (editedRev) => async dispatch => {
-    const {id, userId, boatId, review } = editedRev;
-    const res = await csrfFetch(`/api/reviews/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({ userId, boatId, review })
-    });
-    if (res.ok) {
-        const editedContent = await res.json();
-        dispatch(update(editedContent));
-        return editedContent
-    }
-}
+// export const updatedReview = (editedRev) => async dispatch => {
+//     const {id, userId, boatId, review } = editedRev;
+//     const res = await csrfFetch(`/api/reviews/${id}`, {
+//         method: 'PUT',
+//         body: JSON.stringify({ userId, boatId, review })
+//     });
+//     if (res.ok) {
+//         const editedContent = await res.json();
+//         dispatch(update(editedContent));
+//         return editedContent
+//     }
+// }
 
 export const deleteReview = (id) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${id}`, {
-        method: 'DELETE',
+        method: 'DELETE_ONE',
     });
     if (!res.ok) throw res;
     const review = await res.json();
@@ -69,16 +69,16 @@ export const deleteReview = (id) => async dispatch => {
     return review;
 }
 
-export const reviewForm = postReview => async dispatch => {
-    const res = await csrfFetch('api/reviews', {
-        method: 'POST',
-        body: JSON.stringify(postReview)
-    })
-    if (!res.ok) throw res;
-    const review = await res.json();
-    dispatch(addOneReview(review));
-    return review;
-}
+// export const reviewForm = postReview => async dispatch => {
+//     const res = await csrfFetch('api/reviews', {
+//         method: 'POST',
+//         body: JSON.stringify(postReview)
+//     })
+//     if (!res.ok) throw res;
+//     const review = await res.json();
+//     dispatch(addOneReview(review));
+//     return review;
+// }
 
 const initialState = {};
 

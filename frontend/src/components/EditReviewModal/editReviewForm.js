@@ -5,7 +5,6 @@ import { Provider } from "react-redux"
 import "./EditReviewModal.css";
 
 
-
 export default function EditReviewForm ({selectedReview}) {
    const dispatch = useDispatch();
    const [review, setReview] = useState(selectedReview.review);

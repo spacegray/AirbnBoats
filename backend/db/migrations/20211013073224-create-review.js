@@ -11,12 +11,12 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: 'Users'}
+        references: { model: "Users" },
       },
       boatId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Boats'}
+        references: { model: "Boats" },
       },
       review: {
         allowNull: false,
@@ -24,7 +24,10 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: DataTypes.DATEONLY,
+        get: function () {
+          return moment.utc(this.getDataValue("regDate")).format("YYYY-MM-DD");
+        },
       },
       updatedAt: {
         allowNull: false,

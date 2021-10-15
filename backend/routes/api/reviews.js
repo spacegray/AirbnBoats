@@ -26,31 +26,18 @@ router.get(
 );
 
 // create a review
-router.post(
-  "/",
-  asyncHandler(async function (req, res) {
-    const review = await db.Review.create(req.body);
-    const userReview = await db.Review.findOne({
-      where: {
-        id: review.id,
-      },
-      include: { model: db.Boat },
-    });
-    return res.json(userReview);
-  })
-);
 
 router.post(
   "/",
   asyncHandler(async function (req, res) {
     const review = await db.Review.create(req.body);
-    const userReview = await db.Review.findOne({
-      where: {
-        id: review.id,
-      },
-      include: { model: db.Boat },
-    });
-    return res.json(userReview);
+    // const userReview = await db.Review.findOne({
+    //   where: {
+    //     id: review.id,
+    //   },
+    //   include: { model: db.Boat },
+    // });
+    return res.json(review);
   })
 );
 

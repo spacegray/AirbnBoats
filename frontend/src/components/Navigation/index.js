@@ -23,17 +23,23 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav className="navbar__container" id="navbar">
-      <ul>
-        <li className="nav__panel">
-          <div className="airbnBoats__logo_icon">
-            <NavLink exact to="/listings">
-              <img className="boatLogo" src={bnbLogo} alt="logo" />
-            </NavLink>
-          </div>
-
-          {isLoaded && sessionLinks}
-        </li>
-      </ul>
+      <div className="container__real">
+        <ul>
+          <li className="nav__panel">
+            <div className="airbnBoats__home">
+              <NavLink exact to="/">
+                <img className="boatLogo" src={bnbLogo} alt="logo" />
+              </NavLink>
+            </div>
+            <div className="nav-right">
+              <NavLink className="listing__link" to="/listings">
+                <button> Listings</button>
+              </NavLink>
+              {isLoaded && sessionLinks}
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }

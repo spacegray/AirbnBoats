@@ -44,8 +44,13 @@ function BoatListingPage() {
 
   return (
     <>
-      <div className="boatList__section">
-        <div className="nav__panel"></div>
+      <div className="page__container">
+        <div className="boatList__section">
+          <div className="boat__image__section">
+            <div className="boat__image">
+              <img className="image" src={boat?.img} alt=""></img>
+            </div>
+          </div>
         <div className="decription__container">
           <div className="boat__details">
             <h2>{boat?.name}</h2>
@@ -57,55 +62,54 @@ function BoatListingPage() {
               <div className="listing__price">$ {boat?.price} /day </div>
             </div>
           </div>
-          <div className="boat__image__section">
-            <div className="boat__image">
-              <img className="image" src={boat?.img} alt=""></img>
-            </div>
-          </div>
-          <div className="review__table">
-            <h1>Reviews</h1>
-            <div className="reviewsList">
-              <div className="form__section">
-                <form className="review__form" onSubmit={handleSubmit}>
-                  <textarea
-                    className="review-area"
-                    type="text"
-                    placeholder="How was your experience?"
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)}
-                  />
+
+            <div className="review__table">
+              <h1>Reviews</h1>
+              <div className="reviewsList">
+                <div className="form__section">
+                  <form className="review__form" onSubmit={handleSubmit}>
+                    <textarea
+                      className="review-area"
+                      type="text"
+                      placeholder="How was your experience?"
+                      value={review}
+                      onChange={(e) => setReview(e.target.value)}
+                    />
                     <button className="submit__btn" type="submit">
                       Submit
                     </button>
-                </form>
-              </div>
-              {reviews ? (
-                Object.keys(reviews).length === 0 ? (
-                  <h3>No reviews to display</h3>
-                ) : (
-                  Object.keys(reviews).map((key) =>
-                    boat?.id === reviews[key].boatId ? (
-                      <div key={reviews[key]} className="review__section">
-                        <h3 id="reviewer-name">
-                          {reviews[key]?.User?.username}
-                        </h3>
-                        <p id="review-content">{reviews[key].review}</p>
-                        <p id="timestamp">{reviews[key].createdAt}</p>
-                        {sessionUser &&
-                          sessionUser?.username ===
-                            reviews[key]?.User?.username && (
-                            <button
-                              id="delete-review"
-                              onClick={() => deleteReviewAlert(reviews[key].id)}
-                            >
-                              <i className="trash__btn"> Delete</i>
-                            </button>
-                          )}
-                      </div>
-                    ) : null
+                  </form>
+                </div>
+                {reviews ? (
+                  Object.keys(reviews).length === 0 ? (
+                    <h3>No reviews to display</h3>
+                  ) : (
+                    Object.keys(reviews).map((key) =>
+                      boat?.id === reviews[key].boatId ? (
+                        <div key={reviews[key]} className="review__section">
+                          <h3 id="reviewer-name">
+                            {reviews[key]?.User?.username}
+                          </h3>
+                          <p id="review-content">{reviews[key].review}</p>
+                          <p id="timestamp">{reviews[key].createdAt}</p>
+                          {sessionUser &&
+                            sessionUser?.username ===
+                              reviews[key]?.User?.username && (
+                              <button
+                                id="delete-review"
+                                onClick={() =>
+                                  deleteReviewAlert(reviews[key].id)
+                                }
+                              >
+                                <i className="trash__btn"> Delete</i>
+                              </button>
+                            )}
+                        </div>
+                      ) : null
+                    )
                   )
-                )
-              ) : null}
+                ) : null}
+              </div>
             </div>
           </div>
         </div>

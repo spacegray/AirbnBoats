@@ -4,7 +4,7 @@ import { updatedReview } from "../../store/reviews";
 import "./EditReviewModal.css";
 
 
-export default function editReviewForm ({selectedReview, setShowModal}) {
+export default function editReviewForm ({selectedReview, setOpenModal}) {
    const dispatch = useDispatch();
    const [review, setReview] = useState(selectedReview.review);
 
@@ -16,7 +16,7 @@ export default function editReviewForm ({selectedReview, setShowModal}) {
            boatId: selectedReview.boatId, review 
        }
        dispatch(updatedReview(editedReview))
-       setShowModal(false);
+       setOpenModal(false);
    }
 
    return (

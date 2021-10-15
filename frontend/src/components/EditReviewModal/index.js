@@ -1,14 +1,11 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
 import editReviewForm from "./editReviewForm"
-import {updateReviewForm} from "./updateReviewForm"
+import { Dispatch } from "react";
+import { updatedReview } from "../../store/reviews";
 import "./EditReviewModal.css";
 
-// console.log(editReviewForm);
-
-// function editForm (editReviewForm) {
-    
-// }
+const dispatch = useDispatch();
 
 export default function EditReviewModal({selectedReview}) {
   const [openModal, setOpenModal] = useState(false);
@@ -55,13 +52,12 @@ export default function EditReviewModal({selectedReview}) {
       >
         {" "}
         <h1>Edit your comment</h1>
-        <ReactModal onClose={() => setShowModal(false)}>
-           {" "}
           <EditReviewForm
             selectedReview={selectedReview}
-            // setShowModal={setShowModal}
           />
-          16{" "}
+        <ReactModal onClose={() => setOpenModal(false)}>
+           {" "}
+          {" "}
         </ReactModal>
       </ReactModal>
     </>

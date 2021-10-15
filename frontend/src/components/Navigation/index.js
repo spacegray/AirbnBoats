@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
+import bnbLogo from "../../images//AirBnBoats-logo.png";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -21,14 +22,19 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <nav className="navbar__container" id="navbar">
+      <ul>
+        <li className="nav__panel">
+          <div className="homeIcon">
+            <NavLink exact to="/">
+              <img className="boatLogo" src={bnbLogo} alt="logo" />
+            </NavLink>
+          </div>
+
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </nav>
   );
 }
 

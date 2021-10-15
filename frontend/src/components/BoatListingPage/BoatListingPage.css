@@ -4,3 +4,21 @@ width: 542px;
 border-radius: 18px;
 
 }
+
+.review__section {
+    border-top: 1px solid;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.form__section {
+    display: flex;
+    width: 200px;
+    height: 150px;
+    padding: 10px;
+}
+
+textarea {
+    width: 200px;
+    height: 100px;
+}

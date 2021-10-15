@@ -65,6 +65,20 @@ function BoatListingPage() {
           <div className="review__table">
             <h1>Reviews</h1>
             <div className="reviewsList">
+              <div className="form__section">
+                <form className="review__form" onSubmit={handleSubmit}>
+                  <textarea
+                    className="review-area"
+                    type="text"
+                    placeholder="How was your experience?"
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)}
+                  />
+                    <button className="submit__btn" type="submit">
+                      Submit
+                    </button>
+                </form>
+              </div>
               {reviews ? (
                 Object.keys(reviews).length === 0 ? (
                   <h3>No reviews to display</h3>
@@ -78,7 +92,8 @@ function BoatListingPage() {
                         <p id="review-content">{reviews[key].review}</p>
                         <p id="timestamp">{reviews[key].createdAt}</p>
                         {sessionUser &&
-                          sessionUser?.username === reviews[key]?.User?.username && (
+                          sessionUser?.username ===
+                            reviews[key]?.User?.username && (
                             <button
                               id="delete-review"
                               onClick={() => deleteReviewAlert(reviews[key].id)}
@@ -91,18 +106,6 @@ function BoatListingPage() {
                   )
                 )
               ) : null}
-            </div>
-            <div className="form__section">
-              <form className='review__form' onSubmit={handleSubmit}>
-                <textarea
-                  className='review-area'
-                  type='text'
-                  placeholder='How was your experience?'
-                  value={review}
-                  onChange={(e) => setReview(e.target.value)}
-                />
-                <button className='submit__btn' type='submit'>Submit</button>
-                </form>
             </div>
           </div>
         </div>

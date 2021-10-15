@@ -1,5 +1,8 @@
 
-
+.body .page__container {
+    display: flex;
+    justify-content: center;
+}
 
 .boat__image .image {
 height: 283px;

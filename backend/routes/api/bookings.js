@@ -23,25 +23,25 @@ router.get('/:id', asyncHandler(async function (req, res) {
     return res.json(userBookingList);
 }))
 
-// router.post('/', asyncHandler(async function (req, res) {
-//     const book = await Booking.create(req.body);
-//     const newBooking = await Booking.findOne({
-//         where: { 
-//             id: booking.id
-//         },
-//         include: [User.id, Boat.id]
-//     });
-//     return res.json(newBooking);
-// }))
+router.post('/', asyncHandler(async function (req, res) {
+    const booking = await Booking.create(req.body);
+    const newBooking = await Booking.findOne({
+        where: { 
+            id: booking.id
+        },
+        include: [User.id, Boat.id]
+    });
+    return res.json(newBooking);
+}))
 
-// router.delete('/:id', asyncHandler(async function (req, res) {
-//     const thisBooking = req.params.id;
-//     await Booking.destroy({
-//         where: { 
-//             id: thisBooking
-//         }
-//     });
-//     return res.json(thisBooking);
-// }))
+router.delete('/:id', asyncHandler(async function (req, res) {
+    const thisBooking = req.params.id;
+    await Booking.destroy({
+        where: { 
+            id: thisBooking
+        }
+    });
+    return res.json(thisBooking);
+}))
 
 module.exports = router;

@@ -37,6 +37,7 @@ function BoatListingPage() {
     setReview('');
 };
 
+
     const deleteReviewAlert = (id) => {
       dispatch(deleteReview(id));
       window.alert("Your Review Has Been Deleted");

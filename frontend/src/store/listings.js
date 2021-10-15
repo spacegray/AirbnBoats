@@ -26,6 +26,9 @@ export const getOneBoat = (boatId) => async dispatch => {
     let boat = await res.json();
     dispatch(addOneBoat(boat))
 }
+
+
+
 const initialState = {};
 
 const boatsReducer = (state = initialState, action) => {

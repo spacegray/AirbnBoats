@@ -9,6 +9,7 @@ import { getReviews, addReview, updatedReview, deleteReview, reviewForm } from "
 import "./BoatListingPage.css";
 
 function BoatListingPage() {
+  
   const dispatch = useDispatch();
   const { id } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
@@ -36,7 +37,9 @@ function BoatListingPage() {
     await dispatch(reviewForm(createReview))
     setReview('');
 };
-
+  // const listing = useSelector((state) => {
+  //   return state.listings[id];
+  // });
 
     const deleteReviewAlert = (id) => {
       dispatch(deleteReview(id));

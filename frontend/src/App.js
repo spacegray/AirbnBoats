@@ -47,7 +47,7 @@ function App() {
         <Switch>
           <Navigation isLoaded={isLoaded} />
           <Route path="/signup">
-            <SignupFormPage />
+          <h1> THIS IS A TEST </h1>  <SignupFormPage />
           </Route>
           <Route path="/listings" exact>
             <BoatListings />

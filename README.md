@@ -21,9 +21,6 @@ _A clone of Airbnb that provides a space for users to find and rent exceptional 
 * users may update their review
 * users may delete their review
 
-## Bonus Features
-* Search boat listings by location
-
 ## DB Schema 
 <img src="frontend/images/db-schema.png" alt="db-schema"/>
 

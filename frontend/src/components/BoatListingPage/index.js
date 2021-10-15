@@ -18,6 +18,32 @@ function BoatListingPage() {
   const reviews = useSelector((state) => state.reviews);
   const [review, setReview] = useState('');
 
+  // return modified value from eachReview.createdAt, everything before 'T'
+  // const date = (reviews) => {
+  //     if (reviews.createdAt) {
+  //       const longDate = review.createdAt;
+  //       simpleDate = longDate.substring(0, longDate.indexOf('T'));
+  //     }
+  //   return simpleDate;
+  // }
+
+ 
+//  const date = (reviews) => {
+//    const values = Object.values(reviews)
+//    const longDate = values.reviews.createdAt;
+     
+//   return longDate.substring(0, longDate.indexOf("T"));
+//   };
+//   console.log('THIS IS A TEST11', longDate);
+
+
+ 
+ 
+ 
+ 
+
+
+
 
   useEffect(() => {
     dispatch(getOneBoat(id));
@@ -96,7 +122,7 @@ function BoatListingPage() {
                             {eachReview?.User?.username}
                           </h3>
                           <p id="review-content">{eachReview.review}</p>
-                          <p id="timestamp">{eachReview.createdAt}</p>
+                          <p id="timestamp">{(eachReview.createdAt)}</p>
                           {sessionUser &&
                             sessionUser?.id === eachReview?.userId && (
                               <>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { getOneBoat } from "../../store/listings";
 import { getReviews, addReview, updatedReview, deleteReview, reviewForm } from "../../store/reviews";
@@ -14,17 +15,32 @@ function BoatListingPage() {
   const history = useHistory();
   const boat = useSelector((state) => state.boats[id]);
   const reviews = useSelector((state) => state.reviews.totalReviews);
+  const [review, setReview] = useState('');
 
 
-  //   return state.boats[id];
-  // });
   useEffect(() => {
     dispatch(getOneBoat(id));
     dispatch(getReviews(id));
-    dispatch(deleteReview(id));
+    // dispatch(deleteReview(id));
+    // dispatch(addReview(id))
   }, [id, dispatch]);
 
-  // console.log(boat)
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const createReview = {
+        review,
+        userId: sessionUser.id,
+        boatId: +boat.id
+    };
+    await dispatch(reviewForm(createReview))
+    setReview('');
+};
+
+    const deleteReviewAlert = (id) => {
+      dispatch(deleteReview(id));
+      window.alert("Your Review Has Been Deleted");
+    };
 
   return (
     <>
@@ -65,7 +81,7 @@ function BoatListingPage() {
                           sessionUser?.username === reviews[key]?.User?.username && (
                             <button
                               id="delete-review"
-                              onClick={() => deleteReview(reviews[key].id)}
+                              onClick={() => deleteReviewAlert(reviews[key].id)}
                             >
                               <i className="trash__btn"> Delete</i>
                             </button>
@@ -75,6 +91,18 @@ function BoatListingPage() {
                   )
                 )
               ) : null}
+            </div>
+            <div className="form__section">
+              <form className='review__form' onSubmit={handleSubmit}>
+                <textarea
+                  className='review-area'
+                  type='text'
+                  placeholder='How was your experience?'
+                  value={review}
+                  onChange={(e) => setReview(e.target.value)}
+                />
+                <button className='submit__btn' type='submit'>Submit</button>
+                </form>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -9,19 +10,18 @@ import BoatListingPage from "./components/BoatListingPage";
 
 function App() {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  return (
+  
+ if (sessionUser) {  return  (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
           <Route path='/listings' exact>
             <BoatListings />
           </Route>
@@ -29,12 +29,30 @@ function App() {
             <BoatListingPage />
           </Route>
           <Route path='/reviews'>
-      
           </Route>
         </Switch>
       )}
     </>
   );
+  } else {
+    return (
+      <>
+        <Switch>
+          <Navigation isLoaded={isLoaded} />
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route path="/listings" exact>
+            <BoatListings />
+          </Route>
+          <Route path="/listings/:id">
+            <BoatListingPage />
+          </Route>
+          <Route path="/reviews"></Route>
+        </Switch>
+      </>
+    );
+  }
 }
 
 export default App;

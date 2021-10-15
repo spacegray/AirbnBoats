@@ -17,7 +17,7 @@ _A clone of Airbnb that provides a space for users to find and rent exceptional 
 * delete booking
 
 ## Reviews CRUD
-* users may leave reviews on boat listings
+* users may leave reviews on boat listings 
 * users may update their review
 * users may delete their review 
 

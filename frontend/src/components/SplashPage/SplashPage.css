@@ -2,14 +2,16 @@
     display: flex;
     flex-wrap: nowrap;
     flex-basis: 100%;
+    /* align-content: center;
+    justify-content: center; */
 }
 
 .splash {
 display: flex;
 justify-content: center;
 align-content: center;
-width: 80%;
-height: 80%;
+/* width: 80%;
+height: 80%; */
 left: 0px;
 top: 0px;
 }

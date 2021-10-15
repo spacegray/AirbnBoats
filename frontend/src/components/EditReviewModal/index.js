@@ -1,8 +1,16 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
-function editForm () {}
+import editReviewForm from "./editReviewForm"
+import {updateReviewForm} from "./updateReviewForm"
+import "./EditReviewModal.css";
 
-export default function EditReviewModal() {
+// console.log(editReviewForm);
+
+// function editForm (editReviewForm) {
+    
+// }
+
+export default function EditReviewModal({selectedReview}) {
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
@@ -47,6 +55,14 @@ export default function EditReviewModal() {
       >
         {" "}
         <h1>Edit your comment</h1>
+        <ReactModal onClose={() => setShowModal(false)}>
+           {" "}
+          <EditReviewForm
+            selectedReview={selectedReview}
+            // setShowModal={setShowModal}
+          />
+          16{" "}
+        </ReactModal>
       </ReactModal>
     </>
   );

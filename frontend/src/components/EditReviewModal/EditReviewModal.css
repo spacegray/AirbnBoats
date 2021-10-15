@@ -1,0 +1,23 @@
+.editReview_form_container {
+    padding: 10px;
+    position: absolute;
+}
+
+.updateReviewForm textarea {
+    resize: vertical;
+    overflow: hidden;
+    height: 100px;
+    width: 500px;
+    font-size: 17px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.815);
+    color: rgb(0, 0, 0);
+}
+
+.editReviewForm div {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+
+}

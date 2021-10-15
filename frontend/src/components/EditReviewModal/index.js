@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
-import editReviewForm from "./editReviewForm"
-// import { Dispatch } from "react";
-import { updatedReview } from "../../store/reviews";
+import EditReviewForm from "./editReviewForm"
+
+
 import "./EditReviewModal.css";
 
 // const dispatch = useDispatch();
@@ -52,9 +52,9 @@ export default function EditReviewModal({selectedReview}) {
       >
         {" "}
         <h1>Edit your comment</h1>
-          <EditReviewForm
-            selectedReview={selectedReview}
-          />
+        <EditReviewForm 
+        selectedReview={selectedReview}
+        />
       </ReactModal>
     </>
   );

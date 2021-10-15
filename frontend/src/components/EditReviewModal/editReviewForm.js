@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatedReview } from "../../store/reviews";
+import { Provider } from "react-redux"
 import "./EditReviewModal.css";
 
 
-export default function editReviewForm ({selectedReview, setOpenModal}) {
+
+export default function EditReviewForm ({selectedReview}) {
    const dispatch = useDispatch();
    const [review, setReview] = useState(selectedReview.review);
 
@@ -16,7 +18,6 @@ export default function editReviewForm ({selectedReview, setOpenModal}) {
            boatId: selectedReview.boatId, review 
        }
        dispatch(updatedReview(editedReview))
-       setOpenModal(false);
    }
 
    return (

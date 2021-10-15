@@ -88,20 +88,20 @@ const reviewsReducer = (state = initialState, action) => {
       if (!state[action.review.id]) {
         const newState = {
           ...state,
-           [action.review.id]: action.review
+          [action.review.id]: action.review,
         };
         return newState;
       }
       return {
         ...state,
-         [action.review.id]: { ...action.review }
-        }
+        [action.review.id]: { ...action.review },
       };
+    }
     case UPDATE: {
       return {
         ...state,
-        [action.review.updateReview.id]: {
-          ...action.review.updateReview,
+        [action.review.updatedReview.id]: {
+          ...action.review.updatedReview,
         },
       };
     }
@@ -110,12 +110,11 @@ const reviewsReducer = (state = initialState, action) => {
       action.reviews.forEach((review) => {
         totalReviews[review.id] = review;
       });
-      return { ...state, ...totalReviews }
+      return { ...state, ...totalReviews };
     }
     case DELETE: {
-
-      delete state[action.id]
-      return {...state}
+      delete state[action.id];
+      return { ...state };
     }
     default:
       return state;

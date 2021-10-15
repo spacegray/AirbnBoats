@@ -7,7 +7,7 @@ _A clone of Airbnb that provides a space for users to find and rent exceptional 
 ## Features
 
 ## Boat Listings
-* showcases boat listings based on location
+* showcases boat rentals
 * images and details of each boat
 * various types of boats and prices
 

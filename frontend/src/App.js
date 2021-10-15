@@ -18,17 +18,14 @@ function App() {
   }, [dispatch]);
 
   
- if (sessionUser) {  return  (
+ if (!sessionUser) {  return (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/' exact>
-            <SplashPage/>
-          </Route>
           <Route path="/signup">
             <SignupFormPage />
-            </Route>
+          </Route>
           <Route path='/listings' exact>
             <BoatListings />
           </Route>
@@ -41,25 +38,26 @@ function App() {
       )}
     </>
   );
-  } else {
-    return (
-      <>
+}
+return (
+  <>
+<Navigation isLoaded={isLoaded} />
+      {isLoaded && (
         <Switch>
-          <Navigation isLoaded={isLoaded} />
-          <Route path="/signup">
-          <h1> THIS IS A TEST </h1>  <SignupFormPage />
-          </Route>
-          <Route path="/listings" exact>
+          <Route path='/listings' exact>
             <BoatListings />
           </Route>
-          <Route path="/listings/:id">
+          <Route path='/listings/:id'>
             <BoatListingPage />
           </Route>
-          <Route path="/reviews"></Route>
         </Switch>
-      </>
-    );
-  }
+      )}
+  </>
+)
 }
 
 export default App;
+
+
+
+

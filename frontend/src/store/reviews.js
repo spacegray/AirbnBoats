@@ -46,7 +46,7 @@ export const getReviews = (id) => async (dispatch) => {
   }
   return getReviews;
 };
-export const updatedReview = (editedRev) => async (dispatch) => {
+export const updateReview = (editedRev) => async (dispatch) => {
   const { id, userId, boatId, review } = editedRev;
   const res = await csrfFetch(`/api/reviews/${id}`, {
     method: "PUT",
@@ -83,6 +83,7 @@ export const reviewForm = (postReview) => async (dispatch) => {
 const initialState = {};
 
 const reviewsReducer = (state = initialState, action) => {
+  let newState = { ...state };
   switch (action.type) {
     case ADD_ONE: {
       if (!state[action.review.id]) {
@@ -100,11 +101,20 @@ const reviewsReducer = (state = initialState, action) => {
     case UPDATE: {
       return {
         ...state,
-        [action.review.updatedReview.id]: {
-          ...action.review.updatedReview,
+        [action.review.updateReview.id]: {
+          ...action.review.updateReview,
         },
       };
     }
+
+      newState.reviews = state.reviews.map(reviews => {
+        if (reviews.id === action.payload.id) {
+          return action.payload;
+        }
+        return review;
+      });
+      return newState;
+
     case LOAD: {
       const totalReviews = {};
       action.reviews.forEach((review) => {

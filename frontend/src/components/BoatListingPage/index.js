@@ -109,7 +109,7 @@ function BoatListingPage() {
                           {sessionUser &&
                             sessionUser?.id === eachReview?.userId && (
                               <>
-                                <h1>{eachReview.review}</h1>
+                                {/* <h1>{eachReview.review}</h1> */}
                                 <button
                                   id="delete-review"
                                   onClick={() =>

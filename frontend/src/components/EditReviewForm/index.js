@@ -19,8 +19,7 @@ export default function EditReviewForm (reviewContent) {
            boatId: reviewContent.boatId, 
           reviewContent
        }
-      console.log('Extra Friday Test', editedReview);
-      //  return dispatch(updatedReview(editedReview))
+       return console.log(dispatch(updatedReview(editedReview)))
    }
 
    return (
@@ -39,6 +38,7 @@ export default function EditReviewForm (reviewContent) {
              <button
                type="submit"
                className="editReview-form-btn"
+               onChange={(e) => setReview(e.target.value)}
              >
                Update Review
              </button>

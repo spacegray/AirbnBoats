@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatedReview } from "../../store/reviews";
-// import { Provider } from "react-redux"
 
 
-
-// {
-//   selectedReview;
-// }
 export default function EditReviewForm (reviewContent) {
   console.log(reviewContent);
    const dispatch = useDispatch();

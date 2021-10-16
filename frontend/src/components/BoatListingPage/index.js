@@ -2,25 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { getOneBoat } from "../../store/listings";
-import { getReviews, addReview, updatedReview, deleteReview, reviewForm } from "../../store/reviews";
-import ReactModal from "react-modal";
-import EditReviewModal from "../EditReviewModal";
+import {
+  getReviews,
+  addReview,
+  updatedReview,
+  deleteReview,
+  reviewForm,
+} from "../../store/reviews";
+import { Modal } from "../../context/Modal";
 import { ModalProvider } from "../../context/Modal";
-
-
+import  EditReviewForm from "../EditReviewForm/"
 
 import "./BoatListingPage.css";
 
 function BoatListingPage() {
-
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const { id } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const boat = useSelector((state) => state.boats[id]);
   const reviews = useSelector((state) => state.reviews);
-  const [review, setReview] = useState('');
-
+  const [review, setReview] = useState("");
 
   useEffect(() => {
     dispatch(getOneBoat(id));
@@ -29,22 +32,22 @@ function BoatListingPage() {
     // dispatch(addReview(id))
   }, [id, dispatch]);
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const createReview = {
-        review,
-        userId: sessionUser.id,
-        boatId: +boat.id
+      review,
+      userId: sessionUser.id,
+      boatId: +boat.id,
     };
-    await dispatch(reviewForm(createReview))
-    setReview('');
-};
+    await dispatch(reviewForm(createReview));
+    setReview("");
+  };
 
-    const deleteReviewAlert = (id) => {
-      dispatch(deleteReview(id));
-      window.alert("Your Review Has Been Deleted");
-    };
+  const deleteReviewAlert = (id) => {
+    dispatch(deleteReview(id));
+    window.alert("Your Review Has Been Deleted");
+  };
 
   return (
     <>
@@ -70,21 +73,24 @@ function BoatListingPage() {
             <div className="review__table">
               <h1>Reviews</h1>
               <div className="reviewsList">
-                
-                  {sessionUser? <div className="form__section"> <form className="review__form" onSubmit={handleSubmit}>
-                    <textarea
-                      className="review-area"
-                      type="text"
-                      placeholder="How was your experience?"
-                      value={review}
-                      onChange={(e) => setReview(e.target.value)}
-                    />
-                    <button className="submit__btn" type="submit">
-                      Submit
-                    </button>
-                  </form>  </div> : null }
-                  
-               
+                {sessionUser ? (
+                  <div className="form__section">
+                    {" "}
+                    <form className="review__form" onSubmit={handleSubmit}>
+                      <textarea
+                        className="review-area"
+                        type="text"
+                        placeholder="How was your experience?"
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                      />
+                      <button className="submit__btn" type="submit">
+                        Submit
+                      </button>
+                    </form>{" "}
+                  </div>
+                ) : null}
+
                 {reviews ? (
                   Object.keys(reviews).length === 0 ? (
                     <h3>No reviews to display</h3>
@@ -103,25 +109,28 @@ function BoatListingPage() {
                           {sessionUser &&
                             sessionUser?.id === eachReview?.userId && (
                               <>
-
-                              <h1>{eachReview.review}</h1>
-                              <button
-                                id="delete-review"
-                                onClick={() => deleteReviewAlert(eachReview.id)}
-                              >
-                                <i className="trash__btn"> Delete</i>
-                              </button>
-                              <ModalProvider>
-                              <EditReviewModal review={eachReview}
-                                />
-                                
-                              </ModalProvider>
-                      
+                                <h1>{eachReview.review}</h1>
+                                <button
+                                  id="delete-review"
+                                  onClick={() =>
+                                    deleteReviewAlert(eachReview.id)
+                                  }
+                                >
+                                  <i className="trash__btn"> Delete</i>
+                                </button>
+                                <button onClick={() => setShowModal(true)}>
+                                  Edit
+                                </button>
+                                {showModal && (
+                                  <Modal onClose={() => setShowModal(false)}>
+                                    <EditReviewForm review={eachReview} />
+                                  </Modal>
+                                )}
                               </>
                             )}
                         </div>
                       ) : null
-                    ) 
+                    )
                   )
                 ) : null}
               </div>

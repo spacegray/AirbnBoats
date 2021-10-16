@@ -10,7 +10,7 @@ import { updatedReview } from "../../store/reviews";
 // }
 export default function EditReviewForm (reviewContent) {
   console.log(reviewContent);
-  //  const dispatch = useDispatch();
+   const dispatch = useDispatch();
   //  const [id, setId] = useState("");
   //  const [userId, setUserId] = useState("");
   //  const [id, setBoatId] = useState("");

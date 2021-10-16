@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
 import EditReviewForm from "../EditReviewForm";
+import { Modal } from "../../context/Modal";
 
 import "./EditReviewModal.css";
 

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
-import EditReviewForm from "./EditReviewForm"
+import EditReviewForm from "../EditReviewForm";
 
 import "./EditReviewModal.css";
 
 // const dispatch = useDispatch();
 
-console.log('THIS IS A TEST', EditReviewForm)
+console.log("THIS IS A TEST", EditReviewForm);
 
-export default function EditReviewModal({selectedReview}) {
+export default function EditReviewModal( eachReview ) {
+  console.log("MEGA TESTING", eachReview);
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
@@ -53,9 +54,7 @@ export default function EditReviewModal({selectedReview}) {
       >
         {" "}
         <h1>Edit your comment</h1>
-        <EditReviewForm 
-        selectedReview={selectedReview}
-        />
+        <EditReviewForm review={eachReview.review} />
       </ReactModal>
     </>
   );

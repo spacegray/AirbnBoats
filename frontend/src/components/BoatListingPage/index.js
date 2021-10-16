@@ -5,7 +5,7 @@ import { getOneBoat } from "../../store/listings";
 import { getReviews, addReview, updatedReview, deleteReview, reviewForm } from "../../store/reviews";
 import ReactModal from "react-modal";
 import EditReviewModal from "../EditReviewModal";
-import EditReviewForm from "../EditReviewModal/EditReviewForm";
+
 
 import "./BoatListingPage.css";
 
@@ -101,13 +101,15 @@ function BoatListingPage() {
                           {sessionUser &&
                             sessionUser?.id === eachReview?.userId && (
                               <>
+
+                              <h1>{eachReview.review}</h1>
                               <button
                                 id="delete-review"
                                 onClick={() => deleteReviewAlert(eachReview.id)}
                               >
                                 <i className="trash__btn"> Delete</i>
                               </button>
-                              <EditReviewModal
+                              <EditReviewModal review={eachReview}
                       
                               />
                               </>

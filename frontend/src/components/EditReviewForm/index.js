@@ -2,21 +2,30 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatedReview } from "../../store/reviews";
 // import { Provider } from "react-redux"
-import "./EditReviewModal.css";
 
 
-export default function EditReviewForm ({selectedReview}) {
-   const dispatch = useDispatch();
-   const [review, setReview] = useState(selectedReview.review);
+
+// {
+//   selectedReview;
+// }
+export default function EditReviewForm (reviewContent) {
+  console.log(reviewContent);
+  //  const dispatch = useDispatch();
+  //  const [id, setId] = useState("");
+  //  const [userId, setUserId] = useState("");
+  //  const [id, setBoatId] = useState("");
+   const [review, setReview] = useState("");
 
    const editHandler = (e) => {
        e.preventDefault();
        const editedReview = {
-           id: selectedReview.id,
-           userId: selectedReview.userId,
-           boatId: selectedReview.boatId, review 
+           id: reviewContent.id,
+           userId: reviewContent.userId,
+           boatId: reviewContent.boatId, 
+          reviewContent
        }
-       return dispatch(updatedReview(editedReview))
+      console.log('Extra Friday Test', editedReview);
+      //  return dispatch(updatedReview(editedReview))
    }
 
    return (
@@ -32,7 +41,10 @@ export default function EditReviewForm ({selectedReview}) {
              />
            </div>
            <div className="edit__Review__btn">
-             <button type="submit" className="editReview-form-btn">
+             <button
+               type="submit"
+               className="editReview-form-btn"
+             >
                Update Review
              </button>
            </div>

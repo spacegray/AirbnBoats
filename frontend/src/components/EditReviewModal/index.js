@@ -6,6 +6,8 @@ import "./EditReviewModal.css";
 
 // const dispatch = useDispatch();
 
+console.log('THIS IS A TEST', EditReviewForm)
+
 export default function EditReviewModal({selectedReview}) {
   const [openModal, setOpenModal] = useState(false);
   return (

@@ -7,7 +7,7 @@ import App from "./App";
 import { ModalProvider } from "./context/Modal"
 import { getBoats, getOneBoat } from "./store/listings";
 import { getReviews } from "./store/reviews"
-import {EditReviewModal} from './components/EditReviewModal'
+import {EditReviewModal} from './components/EditReviewModal/'
 
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
@@ -30,11 +30,9 @@ function Root() {
   return (
     <Provider store={store}>
       <ModalProvider>
-        <EditReviewModal>
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </EditReviewModal>
       </ModalProvider>
     </Provider>
   );

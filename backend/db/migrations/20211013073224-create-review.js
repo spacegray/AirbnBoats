@@ -24,10 +24,8 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATEONLY,
-        get: function () {
-          return moment.utc(this.getDataValue("regDate")).format("YYYY-MM-DD");
-        },
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now"),
       },
       updatedAt: {
         allowNull: false,

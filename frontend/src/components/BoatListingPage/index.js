@@ -5,7 +5,7 @@ import { getOneBoat } from "../../store/listings";
 import { getReviews, addReview, updatedReview, deleteReview, reviewForm } from "../../store/reviews";
 import ReactModal from "react-modal";
 import EditReviewModal from "../EditReviewModal";
-import EditReviewForm from "../EditReviewForm";
+import EditReviewForm from "../EditReviewModal/EditReviewForm";
 
 import "./BoatListingPage.css";
 
@@ -107,8 +107,8 @@ function BoatListingPage() {
                               >
                                 <i className="trash__btn"> Delete</i>
                               </button>
-                              <EditReviewModal key={EditReviewForm}
-                              prop={EditReviewForm}
+                              <EditReviewModal
+                      
                               />
                               </>
                             )}

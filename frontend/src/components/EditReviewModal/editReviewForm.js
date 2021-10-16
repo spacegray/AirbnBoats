@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatedReview } from "../../store/reviews";
-import { Provider } from "react-redux"
+// import { Provider } from "react-redux"
 import "./EditReviewModal.css";
 
 
@@ -16,7 +16,7 @@ export default function EditReviewForm ({selectedReview}) {
            userId: selectedReview.userId,
            boatId: selectedReview.boatId, review 
        }
-       dispatch(updatedReview(editedReview))
+       return dispatch(updatedReview(editedReview))
    }
 
    return (

@@ -25,9 +25,6 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: DataTypes.DATEONLY,
-        get: function () {
-          return moment.utc(this.getDataValue("regDate")).format("YYYY-MM-DD");
-        },
       },
       updatedAt: {
         allowNull: false,

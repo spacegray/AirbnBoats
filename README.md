@@ -16,5 +16,7 @@ _A clone of Airbnb that provides a space for users to find exceptional boats_
 * users may update their review
 * users may delete their review 
 
+## DB Schema 
 
+<img src="frontend/images/airbnboats-db-schema.png" alt="db-schema"/>
 

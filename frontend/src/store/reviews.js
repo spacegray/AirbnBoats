@@ -15,6 +15,14 @@ const deleteOneReview = (id) => ({
   id,
 });
 
+// const update = (review) => {
+//   return {
+//     type: UPDATE,
+//     payload: review,
+
+//   }
+// };
+
 const update = (review) => ({
   type: UPDATE,
   review,
@@ -46,14 +54,29 @@ export const getReviews = (id) => async (dispatch) => {
   }
   return getReviews;
 };
-export const updatedReview = (editedRev) => async (dispatch) => {
-  const { id, userId, boatId, review } = editedRev;
+
+// export const updateReview = (editedRev) => async dispatch => {
+//    const { id, userId, boatId, review } = editedRev;
+//   const res = await csrfFetch(`/api/reviews/${id}`, {
+//     method: "PUT",
+//     include: 'user',
+//     body: JSON.stringify(editedRev),
+//   }
+//   );
+//   const content = await res.json();
+//   dispatch(update(content));
+// }
+
+export const updateReview = (editedRev) => async (dispatch) => {
+  const { id, review } = editedRev;
+  console.log("thunk test", editedRev);
   const res = await csrfFetch(`/api/reviews/${id}`, {
     method: "PUT",
-    body: JSON.stringify({ userId, boatId, review }),
+    body: JSON.stringify({ review }),
   });
   if (res.ok) {
     const editedContent = await res.json();
+    console.log("edited content test", editedContent);
     dispatch(update(editedContent));
     return editedContent;
   }
@@ -83,39 +106,42 @@ export const reviewForm = (postReview) => async (dispatch) => {
 const initialState = {};
 
 const reviewsReducer = (state = initialState, action) => {
+  // let newState = { ...state };
+  // console.log("reducer test", action.review);
   switch (action.type) {
     case ADD_ONE: {
       if (!state[action.review.id]) {
         const newState = {
           ...state,
-           [action.review.id]: action.review
+          [action.review.id]: action.review,
         };
         return newState;
       }
       return {
         ...state,
-         [action.review.id]: { ...action.review }
-        }
+        [action.review.id]: { ...action.review },
       };
+    }
     case UPDATE: {
-      return {
-        ...state,
-        [action.review.updateReview.id]: {
-          ...action.review.updateReview,
-        },
-      };
+      // action.payload.review.user = action.payload.user
+      let newState = {...state};
+      if (action.review.id) {
+        newState[action.review.id] = action.review;
+      }
+      return newState
+        // action,
+        
     }
     case LOAD: {
       const totalReviews = {};
       action.reviews.forEach((review) => {
         totalReviews[review.id] = review;
       });
-      return { ...state, ...totalReviews }
+      return { ...state, ...totalReviews };
     }
     case DELETE: {
-
-      delete state[action.id]
-      return {...state}
+      delete state[action.id];
+      return { ...state };
     }
     default:
       return state;

@@ -1,15 +1,19 @@
+
 body {
   font-family: Montserrat;
+  background-color: lightblue;
+  display: flex;
 }
 
 .navbar__container {
-  position: absolute;
+  /* position: absolute; */
   height: 100px;
-  background-color: aqua;
+  width: 100%;
+  /* background-color: aqua; */
 }
 
 .container__real{
-position:absolute;
+/* position:absolute; */
 width: 100%;
 height: 77px;
 left: 0px;

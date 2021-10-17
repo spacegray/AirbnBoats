@@ -1,8 +1,16 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
-function editForm () {}
+import EditReviewForm from "../EditReviewForm";
+import { Modal } from "../../context/Modal";
 
-export default function EditReviewModal() {
+import "./EditReviewModal.css";
+
+// const dispatch = useDispatch();
+
+console.log("THIS IS A TEST", EditReviewForm);
+
+export default function EditReviewModal( eachReview ) {
+  console.log("MEGA TESTING", eachReview);
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
@@ -47,6 +55,7 @@ export default function EditReviewModal() {
       >
         {" "}
         <h1>Edit your comment</h1>
+        <EditReviewForm review={eachReview.review} />
       </ReactModal>
     </>
   );

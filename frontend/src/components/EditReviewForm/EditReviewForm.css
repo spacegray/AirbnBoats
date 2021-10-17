@@ -1,0 +1,11 @@
+/* #modal-content {
+    position:center;
+}
+ */
+
+ .editReview_form_container {
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     background-color: red;
+ }

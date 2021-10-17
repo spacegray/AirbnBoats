@@ -2,7 +2,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const db = require("../../db/models");
 
-// const {Review} = require('.../../db/models')
+const { Review, User } = require("../../db/models");
 
 const router = express.Router();
 
@@ -17,10 +17,10 @@ const router = express.Router();
 router.get(
   "/",
   asyncHandler(async function (req, res) {
-    const reviews = await db.Review.findAll({
+    const reviews = await Review.findAll({
       include: { model: User },
     });
-   
+
     return res.json(reviews);
   })
 );
@@ -30,7 +30,7 @@ router.get(
 router.post(
   "/",
   asyncHandler(async function (req, res) {
-    const review = await db.Review.create(req.body);
+    const review = await Review.create(req.body);
     // const userReview = await db.Review.findOne({
     //   where: {
     //     id: review.id,
@@ -45,22 +45,33 @@ router.post(
 router.put(
   "/:id",
   asyncHandler(async (req, res) => {
+    const errors = {};
+    const { review } = req.body;
+    console.log(review);
+    if (!review.trim().length) {
+      errors["length"] = "Must leave a longer review";
+    }
+    if (Object.keys(errors).length) {
+      return res.json(errors);
+    }
+    // let user = await User.findByPk(sessionUser.id);
+    // user = user.dataValues;
     const { id } = req.params;
+    const indivReview = await Review.findOne({
+      where: { id },
+      include: User,
+    });
 
-    await db.Review.update(req.body, {
-      where: { id },
-    });
-    const updatedReview = await db.Review.findOne({
-      where: { id },
-    });
-    return res.json({ updatedReview });
+    const editedRev = await indivReview.update(req.body);
+
+    return res.json(editedRev.dataValues);
   })
 );
 
 router.delete(
   "/:id",
   asyncHandler(async function (req, res) {
-    const deleteReview = await db.Review.destroy({
+    const deleteReview = await Review.destroy({
       where: {
         id: req.params.id,
       },
@@ -73,12 +84,12 @@ router.delete(
 router.get(
   "/:id",
   asyncHandler(async function (req, res) {
-    const reviews = await db.Review.findAll({
+    const reviews = await Review.findAll({
       where: {
         boatId: req.params.id,
       },
       include: { model: db.User },
-      order: [['updatedAt', 'DESC']]
+      order: [["updatedAt", "DESC"]],
     });
     return res.json(reviews);
   })

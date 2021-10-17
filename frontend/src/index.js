@@ -7,6 +7,7 @@ import App from "./App";
 import { ModalProvider } from "./context/Modal"
 import { getBoats, getOneBoat } from "./store/listings";
 import { getReviews } from "./store/reviews"
+import {EditReviewModal} from './components/EditReviewModal/'
 
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
@@ -23,17 +24,15 @@ if (process.env.NODE_ENV !== "production") {
   window.getBoats = getBoats;
   window.getOneBoat = getOneBoat;
   window.getReviews = getReviews;
-  
-
 }
 
 function Root() {
   return (
     <Provider store={store}>
       <ModalProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
       </ModalProvider>
     </Provider>
   );

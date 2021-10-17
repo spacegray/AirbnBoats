@@ -24,7 +24,6 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-      reviewUpdateNight
         type: DataTypes.DATE,
       },
       updatedAt: {

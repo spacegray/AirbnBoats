@@ -67,17 +67,17 @@ export const getReviews = (id) => async (dispatch) => {
 //   dispatch(update(content));
 // }
 
-export const updateReview = (editedRev, sessionUser) => async (dispatch) => {
+export const updateReview = (editedRev) => async (dispatch) => {
   const { id, review } = editedRev;
   console.log("thunk test", editedRev);
   const res = await csrfFetch(`/api/reviews/${id}`, {
     method: "PUT",
-    body: JSON.stringify({ review, sessionUser }),
+    body: JSON.stringify({ review }),
   });
   if (res.ok) {
     const editedContent = await res.json();
     console.log("edited content test", editedContent);
-    dispatch(update({ editedContent, sessionUser }));
+    dispatch(update(editedContent));
     return editedContent;
   }
 };

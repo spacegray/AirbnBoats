@@ -104,7 +104,7 @@ function BoatListingPage() {
                           <h3 id="reviewer-name">
                             {eachReview?.User?.username}
                           </h3>
-                          <p id="review-content">{eachReview.review}</p>
+                          <p id={`review-content ${eachReview.id}`}>{eachReview.review}</p>
                           <p id="timestamp">{eachReview.createdAt}</p>
                           {sessionUser &&
                             sessionUser?.id === eachReview?.userId && (
@@ -123,7 +123,7 @@ function BoatListingPage() {
                                 </button>
                                 {showModal && (
                                   <Modal onClose={() => setShowModal(false)}>
-                                    <EditReviewForm review={eachReview} />
+                                    <EditReviewForm review={{eachReview}} />
                                   </Modal>
                                 )}
                               </>

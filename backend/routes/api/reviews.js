@@ -46,16 +46,16 @@ router.put(
   "/:id",
   asyncHandler(async (req, res) => {
     const errors = {};
-    const { review, sessionUser } = req.body;
-    console.log(review, sessionUser);
+    const { review } = req.body;
+    console.log(review);
     if (!review.trim().length) {
       errors["length"] = "Must leave a longer review";
     }
     if (Object.keys(errors).length) {
       return res.json(errors);
     }
-    let user = await User.findByPk(sessionUser.id);
-    user = user.dataValues;
+    // let user = await User.findByPk(sessionUser.id);
+    // user = user.dataValues;
     const { id } = req.params;
     const indivReview = await Review.findOne({
       where: { boatId: id },

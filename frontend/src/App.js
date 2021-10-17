@@ -19,41 +19,46 @@ function App() {
 
   
  if (!sessionUser) {  return (
-    <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route path='/listings' exact>
-            <BoatListings />
-          </Route>
-          <Route path='/listings/:id'>
-            <BoatListingPage />
-          </Route>
-          <Route path='/reviews'>
-          </Route>
-        </Switch>
-      )}
-    </>
-  );
+   <>
+     <Navigation isLoaded={isLoaded} />
+     {isLoaded && (
+       <Switch>
+         <Route path="/" exact>
+           <SplashPage />
+         </Route>
+         <Route path="/signup">
+           <SignupFormPage />
+         </Route>
+         <Route path="/listings" exact>
+           <BoatListings />
+         </Route>
+         <Route path="/listings/:id">
+           <BoatListingPage />
+         </Route>
+         <Route path="/reviews"></Route>
+       </Switch>
+     )}
+   </>
+ );
 }
 return (
   <>
-<Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path='/listings' exact>
-            <BoatListings />
-          </Route>
-          <Route path='/listings/:id'>
-            <BoatListingPage />
-          </Route>
-        </Switch>
-      )}
+    <Navigation isLoaded={isLoaded} />
+    {isLoaded && (
+      <Switch>
+        <Route path="/" exact>
+          <SplashPage />
+        </Route>
+        <Route path="/listings" exact>
+          <BoatListings />
+        </Route>
+        <Route path="/listings/:id">
+          <BoatListingPage />
+        </Route>
+      </Switch>
+    )}
   </>
-)
+);
 }
 
 export default App;

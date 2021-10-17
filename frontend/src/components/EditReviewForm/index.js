@@ -5,17 +5,14 @@ import { useParams } from "react-router-dom";
 
 
 export default function EditReviewForm({ data }) {
+  const [showModal, setShowModal] = useState(true);
   const { review_Id } = data;
-  console.log(review_Id, "123");
-
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const boats = useSelector((state) => state.boats.boat);
-  // const eachReview = useSelector(state => state.reviews)
   const { id } = useParams();
   const [reviewId, setReviewId] = useState("");
-  //  const [userId, setUserId] = useState("");
-  //  const [id, setBoatId] = useState("");
+
   const [reviewBody, setReviewBody] = useState("");
 
   const editHandler = (e) => {
@@ -29,14 +26,6 @@ export default function EditReviewForm({ data }) {
       console.log(e);
     });
   };
-  //  const allReviews = [];
-  //  for (let key in eachReview) {
-  //    allReviews.push(eachReview[key])
-  //  }
-  //  console.log("allreviews test", allReviews)
-  //  console.log("eachReview test", eachReview)
-  //  console.log("review body test",reviewBody)
-  //  console.log("new review test". newReview)
 
   return (
     <>
@@ -55,7 +44,7 @@ export default function EditReviewForm({ data }) {
               type="submit"
               className="editReview-form-btn"
               onclick={() => {
-                setReviewId();
+                setReviewId(); 
               }}
               //  onChange={(e) => setReview(e.target.value)}
             >

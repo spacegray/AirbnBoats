@@ -1,15 +1,15 @@
 
 
+.body .page__container {
+    display: flex;
+    justify-content: center;
+}
 
 .boat__image .image {
 height: 283px;
 width: 542px;
 border-radius: 18px;
 
-}
-
-.description__container {
-    background-color: red;
 }
 
 .review__section {

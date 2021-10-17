@@ -1,29 +1,37 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 
-export default function EditReviewForm ({eachReview}) {
-  console.log(eachReview);
-   const dispatch = useDispatch();
+export default function EditReviewForm () {
+  // console.log(eachReview);
+  const dispatch = useDispatch();
   const sessionUser = useSelector(state => (state.session.user))
+  const boats = useSelector(state => state.boats.boat)
+  const eachReview = useSelector(state => state.reviews)
   const { id } = useParams();
   //  const [id, setId] = useState("");
   //  const [userId, setUserId] = useState("");
   //  const [id, setBoatId] = useState("");
-   const [reviewBody, setReviewBody] = useState("");
+   const [reviewBody, setReviewBody] = useState('');
 
    const editHandler = (e) => {
        e.preventDefault();
-       const eachReview = {
-           id: reviewContent.id,
-           userId: reviewContent.userId,
-           boatId: reviewContent.boatId, 
-          review
+       const newReview = {
+           id: +id,
+           boatId: id, 
+           review: reviewBody,
        }
-       return dispatch(updateReview(eachReview))
-
+       return dispatch(updateReview(newReview))
    }
+   const allReviews = [];
+   for (let key in eachReview) {
+     allReviews.push(eachReview[key])
+   }
+   console.log("allreviews test", allReviews)
+   console.log("eachReview test", eachReview)
+   console.log("review body test",reviewBody)
+   console.log("new review test". newReview)
 
    return (
      <>
@@ -33,7 +41,7 @@ export default function EditReviewForm ({eachReview}) {
            <div>
              <textarea
                name="review"
-               value={review}
+               value={reviewBody}
                onChange={(e) => setReviewBody(e.target.value)}
              />
            </div>

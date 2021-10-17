@@ -20,7 +20,7 @@ router.get(
     const reviews = await db.Review.findAll({
       include: { model: User },
     });
-   
+
     return res.json(reviews);
   })
 );
@@ -45,15 +45,13 @@ router.post(
 router.put(
   "/:id",
   asyncHandler(async (req, res) => {
+    console.log(req.body);
     const { id } = req.params;
-
-    await db.Review.update(req.body, {
-      where: { id },
-    });
-    const updatedReview = await db.Review.findOne({
-      where: { id },
-    });
-    return res.json({ updatedReview });
+    const indivReview = await db.Review.findByPk(id);
+    console.log("BACKEND TEST!!!!!!!!", indivReview);
+    const editedRev = await indivReview.update(req.body);
+    console.log("BACKEND TEST 2!!", {editedRev});
+    // return res.json(editedRev);
   })
 );
 
@@ -78,7 +76,7 @@ router.get(
         boatId: req.params.id,
       },
       include: { model: db.User },
-      order: [['updatedAt', 'DESC']]
+      order: [["updatedAt", "DESC"]],
     });
     return res.json(reviews);
   })

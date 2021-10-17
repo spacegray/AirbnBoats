@@ -5,12 +5,12 @@ import { getOneBoat } from "../../store/listings";
 import {
   getReviews,
   addReview,
-  updatedReview,
+  updateReview,
   deleteReview,
   reviewForm,
 } from "../../store/reviews";
 import { Modal } from "../../context/Modal";
-import { ModalProvider } from "../../context/Modal";
+// import { ModalProvider } from "../../context/Modal";
 import  EditReviewForm from "../EditReviewForm/"
 
 import "./BoatListingPage.css";
@@ -22,7 +22,7 @@ function BoatListingPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const boat = useSelector((state) => state.boats[id]);
-  const reviews = useSelector((state) => state.reviews);
+  const reviews = useSelector(state => state.reviews);
   const [review, setReview] = useState("");
 
   useEffect(() => {

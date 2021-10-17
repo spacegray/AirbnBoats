@@ -22,10 +22,10 @@ function BoatListingPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const boat = useSelector((state) => state.boats[id]);
+
   const reviews = useSelector(state => state.reviews);
   const [review, setReview] = useState("");
   const [reviewId, setReviewId] = useState(0);
-  
 
   useEffect(() => {
     dispatch(getOneBoat(id));
@@ -107,6 +107,7 @@ function BoatListingPage() {
                           <h3 id="reviewer-name">
                             {eachReview?.User?.username}
                           </h3>
+
                           <p id={`review-content ${eachReview.id}`}>{eachReview.review}</p>
                           <p id="timestamp">{eachReview.createdAt}</p>
                           {sessionUser &&

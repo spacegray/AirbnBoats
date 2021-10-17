@@ -1,5 +1,9 @@
 
 
+.body .page__container {
+    display: flex;
+    justify-content: center;
+}
 
 .boat__image .image {
 height: 283px;
@@ -8,9 +12,7 @@ border-radius: 18px;
 
 }
 
-.description__container {
-    background-color: red;
-}
+
 
 .review__section {
     border-top: 1px solid;

@@ -22,7 +22,7 @@ export default function EditReviewForm () {
            boatId: id, 
            review: reviewBody,
        }
-       return dispatch(updateReview(newReview)).then((e) => {
+       return dispatch(updateReview(newReview, sessionUser)).then((e) => {
          console.log(e)
        })
    }

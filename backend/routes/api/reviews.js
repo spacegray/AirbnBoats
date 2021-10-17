@@ -2,7 +2,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const db = require("../../db/models");
 
-const { Review } = require("../../db/models");
+const { Review, User } = require("../../db/models");
 
 const router = express.Router();
 
@@ -46,22 +46,24 @@ router.put(
   "/:id",
   asyncHandler(async (req, res) => {
     const errors = {};
-    const { review } = req.body;
-    // console.log(review)
+    const { review, sessionUser } = req.body;
+    console.log(review, sessionUser);
     if (!review.trim().length) {
       errors["length"] = "Must leave a longer review";
     }
     if (Object.keys(errors).length) {
       return res.json(errors);
     }
-    // console.log(req.params, req.body);
+    let user = await User.findByPk(sessionUser.id);
+    user = user.dataValues;
     const { id } = req.params;
     const indivReview = await Review.findOne({
       where: { boatId: id },
+      include: User,
     });
-    // console.log("BACKEND TEST!!!!!", indivReview);
+
     const editedRev = await indivReview.update(req.body);
-    console.log("BACKEND TEST 2!!", { editedRev });
+
     return res.json(editedRev.dataValues);
   })
 );

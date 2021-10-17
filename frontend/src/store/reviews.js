@@ -67,17 +67,17 @@ export const getReviews = (id) => async (dispatch) => {
 //   dispatch(update(content));
 // }
 
-export const updateReview = (editedRev) => async (dispatch) => {
+export const updateReview = (editedRev, sessionUser) => async (dispatch) => {
   const { id, review } = editedRev;
   console.log("thunk test", editedRev);
   const res = await csrfFetch(`/api/reviews/${id}`, {
     method: "PUT",
-    body: JSON.stringify( {review} ),
+    body: JSON.stringify({ review, sessionUser }),
   });
   if (res.ok) {
     const editedContent = await res.json();
     console.log("edited content test", editedContent);
-    dispatch(update(editedContent));
+    dispatch(update({ editedContent, sessionUser }));
     return editedContent;
   }
 };
@@ -122,15 +122,14 @@ const reviewsReducer = (state = initialState, action) => {
         [action.review.id]: { ...action.review },
       };
     }
-
     case UPDATE: {
+      // action.payload.review.user = action.payload.user
       return {
-       
+        // action,
         ...state,
         [action.review.id]: action.review,
       };
     }
-
     case LOAD: {
       const totalReviews = {};
       action.reviews.forEach((review) => {

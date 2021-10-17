@@ -103,7 +103,7 @@ function BoatListingPage() {
                           key={eachReview.boatId}
                           className="review__section"
                         >
-                          <h2>{eachReview.id}</h2>
+                          {/* <h2>{eachReview.id}</h2> */}
                           <h3 id="reviewer-name">
                             {eachReview?.User?.username}
                           </h3>

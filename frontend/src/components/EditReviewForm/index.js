@@ -6,16 +6,12 @@ import { useParams } from "react-router-dom";
 
 export default function EditReviewForm({ data }) {
   const { review_Id } = data;
-  console.log(review_Id, "123");
-
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const boats = useSelector((state) => state.boats.boat);
-  // const eachReview = useSelector(state => state.reviews)
   const { id } = useParams();
   const [reviewId, setReviewId] = useState("");
-  //  const [userId, setUserId] = useState("");
-  //  const [id, setBoatId] = useState("");
+
   const [reviewBody, setReviewBody] = useState("");
 
   const editHandler = (e) => {

@@ -22,5 +22,5 @@ _A clone of Airbnb that provides a space for users to find and rent exceptional 
 * users may delete their review 
 
 ## DB Schema 
-<img src="frontend/images/db-schema.png" alt="db-schema"/>
+<img src="frontend/images/airbnboats-db-schema.png" alt="db-schema"/>
 

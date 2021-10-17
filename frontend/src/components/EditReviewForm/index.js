@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
-import { Modal } from "../../context/Modal";
+
 
 export default function EditReviewForm({ data }) {
   const [showModal, setShowModal] = useState(true);

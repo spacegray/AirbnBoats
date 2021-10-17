@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
-
+import { Modal } from "../../context/Modal";
 
 export default function EditReviewForm({ data }) {
+  const [showModal, setShowModal] = useState(true);
   const { review_Id } = data;
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -25,14 +26,6 @@ export default function EditReviewForm({ data }) {
       console.log(e);
     });
   };
-  //  const allReviews = [];
-  //  for (let key in eachReview) {
-  //    allReviews.push(eachReview[key])
-  //  }
-  //  console.log("allreviews test", allReviews)
-  //  console.log("eachReview test", eachReview)
-  //  console.log("review body test",reviewBody)
-  //  console.log("new review test". newReview)
 
   return (
     <>
@@ -51,7 +44,7 @@ export default function EditReviewForm({ data }) {
               type="submit"
               className="editReview-form-btn"
               onclick={() => {
-                setReviewId();
+                setReviewId(); 
               }}
               //  onChange={(e) => setReview(e.target.value)}
             >

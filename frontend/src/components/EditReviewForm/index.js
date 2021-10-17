@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 
-export default function EditReviewForm ({review}) {
-  const { eachReview } = review;
-  console.log(eachReview, "123");
+export default function EditReviewForm ({data}) {
+  const { review_Id } = data;
+  console.log(review_Id, "123");
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => (state.session.user))
@@ -20,7 +20,7 @@ export default function EditReviewForm ({review}) {
    const editHandler = (e) => {
        e.preventDefault();
        const newReview = {
-           id: eachReview.id,
+           id: review_Id,
            boatId: id, 
            review: reviewBody,
        }
@@ -41,6 +41,7 @@ export default function EditReviewForm ({review}) {
      <>
        <div className="editReview_form_container">
          <h2>Edit Your Review</h2>
+         <h2> {review_Id}</h2>
          <form className="updateReviewForm" onSubmit={editHandler}>
            <div>
              <textarea

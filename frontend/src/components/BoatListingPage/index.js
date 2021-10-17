@@ -24,6 +24,8 @@ function BoatListingPage() {
   const boat = useSelector((state) => state.boats[id]);
   const reviews = useSelector(state => state.reviews);
   const [review, setReview] = useState("");
+  const [reviewId, setReviewId] = useState(0);
+  
 
   useEffect(() => {
     dispatch(getOneBoat(id));
@@ -101,6 +103,7 @@ function BoatListingPage() {
                           key={eachReview.boatId}
                           className="review__section"
                         >
+                          <h2>{eachReview.id}</h2>
                           <h3 id="reviewer-name">
                             {eachReview?.User?.username}
                           </h3>
@@ -118,12 +121,12 @@ function BoatListingPage() {
                                 >
                                   <i className="trash__btn"> Delete</i>
                                 </button>
-                                <button onClick={() => setShowModal(true)}>
+                                <button onClick={() => {setShowModal(true); setReviewId(eachReview.id)}}>
                                   Edit
                                 </button>
                                 {showModal && (
                                   <Modal onClose={() => setShowModal(false)}>
-                                    <EditReviewForm review={{eachReview}} />
+                                    <EditReviewForm data={{review_Id: reviewId}} />
                                   </Modal>
                                 )}
                               </>

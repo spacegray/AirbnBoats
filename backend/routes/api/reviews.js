@@ -58,7 +58,7 @@ router.put(
     // user = user.dataValues;
     const { id } = req.params;
     const indivReview = await Review.findOne({
-      where: { boatId: id },
+      where: { id },
       include: User,
     });
 

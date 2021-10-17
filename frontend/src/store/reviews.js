@@ -124,11 +124,13 @@ const reviewsReducer = (state = initialState, action) => {
     }
     case UPDATE: {
       // action.payload.review.user = action.payload.user
-      return {
+      let newState = {...state};
+      if (action.review.id) {
+        newState[action.review.id] = action.review;
+      }
+      return newState
         // action,
-        ...state,
-        [action.review.id]: action.review,
-      };
+        
     }
     case LOAD: {
       const totalReviews = {};

@@ -125,8 +125,9 @@ const reviewsReducer = (state = initialState, action) => {
 
     case UPDATE: {
       return {
+       
         ...state,
-        [action.review.updateReview.id]: action.review.updateReview,
+        [action.review.id]: action.review,
       };
     }
 

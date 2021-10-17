@@ -22,7 +22,9 @@ export default function EditReviewForm () {
            boatId: id, 
            review: reviewBody,
        }
-       return dispatch(updateReview(newReview))
+       return dispatch(updateReview(newReview)).then((e) => {
+         console.log(e)
+       })
    }
    const allReviews = [];
    for (let key in eachReview) {

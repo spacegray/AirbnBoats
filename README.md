@@ -11,11 +11,6 @@ _A clone of Airbnb that provides a space for users to find and rent exceptional 
 * images and details of each boat
 * various types of boats and prices
 
-## Bookings 
-* book a boat 
-* Select duration of stay
-* delete booking
-
 ## Reviews CRUD
 * users may leave reviews on boat listings 
 * users may update their review

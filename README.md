@@ -2,9 +2,7 @@
 
 _A clone of Airbnb that provides a space for users to find exceptional boats_
 
-https://airbnboats-app.herokuapp.com/
-
-<img src="frontend/images/AirBnBoats-logo.png" alt="airBnBoats-logo"/>
+<img src="frontend/images/AirBnBoats-logo.png" alt="airBnBoats-logo" href="https://airbnboats-app.herokuapp.com/"/>
 
 ## Features
 

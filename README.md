@@ -19,7 +19,7 @@ _A clone of Airbnb that provides a space for users to find exceptional boats_
 
 ## User Auth
 * users may only leave reviews when logged in
-* edit / delete are only available to the user they belong to
+* edit / delete on reviews are only available to the user they belong to
 
 ## DB Schema 
 

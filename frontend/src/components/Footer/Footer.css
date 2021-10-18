@@ -1,0 +1,27 @@
+.footer {
+/* position: absolute; */
+/* width: 1152px; */
+height: 90px;
+left: 0px;
+top: 629px;
+
+background: rgba(196, 196, 196, 0.76);
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px
+}
+
+.footer__icons {
+    justify-content: center;
+    color: #364885;
+    padding: 10px;
+}
+.footer__name {
+ font-family: Montserrat;
+font-style: italic;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+}

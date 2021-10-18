@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './SplashPage.css';
-const splashImage = require('../../images/splash-bkgrnd.jpg')
+// const splashImage = require('../../images/splash-bkgrnd.jpg')
+import Footer from '../Footer/index'
+
 
 function SplashPage() {
 
@@ -13,6 +15,7 @@ function SplashPage() {
             ></img>
             <div className="site__quote"> Your adventure awaits</div>
             </div>
+            <Footer/>
       </>
     );
 }

@@ -21,6 +21,13 @@ _A clone of Airbnb that provides a space for users to find exceptional boats_
 * users may only leave reviews when logged in
 * edit / delete on reviews are only available to the user they belong to
 
+### Languages Used
+* React
+* Redux
+* Sequelize
+* Javascript
+* CSS
+
 ## DB Schema 
 
 <img src="frontend/images/airbnboats-db-schema.png" alt="db-schema"/>

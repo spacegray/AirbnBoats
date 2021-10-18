@@ -1,0 +1,11 @@
+.Login__form_onModal {
+    height: 100px;
+    padding: 15px;
+    padding-top: 30px;
+}
+.Login__form_onModal .demo__button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+}

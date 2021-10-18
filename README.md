@@ -28,7 +28,7 @@ _A clone of Airbnb that provides a space for users to find exceptional boats_
 * Javascript
 * CSS
 
-## DB Schema 
+## Datbase Schema 
 
 <img src="frontend/images/airbnboats-db-schema.png" alt="db-schema"/>
 

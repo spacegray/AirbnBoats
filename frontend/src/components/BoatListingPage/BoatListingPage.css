@@ -1,6 +1,6 @@
 
 
-.body .page__container {
+.page__container {
     display: flex;
     justify-content: center;
 }
@@ -8,8 +8,29 @@
 .boat__image .image {
 height: 283px;
 width: 542px;
+display: flex;
+justify-content: center;
+/* height: 60%;
+width: 60%; */
 border-radius: 18px;
+margin-top: 30px;
 
+}
+
+.boatList__section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 720px;
+  
+    background: rgba(79, 176, 182, 0.5);
+    border-radius: 10px;
+}
+
+.boatList__section .description__container {
+    border: 1px solid;
+    width: 100%;
 }
 
 .review__section {

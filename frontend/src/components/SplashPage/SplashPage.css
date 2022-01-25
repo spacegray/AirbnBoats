@@ -10,13 +10,11 @@
 }
 
 .splash {
-display: flex;
 justify-content: center;
-align-content: center;
-/* width: 80%;
-height: 80%; */
-left: 0px;
-top: 0px;
+    align-content: center;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: repeat;
 }
 img.splash {
     /* display: flex; */

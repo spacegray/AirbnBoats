@@ -23,7 +23,7 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav className="navbar__container" id="navbar">
-      <div className="container__real">
+      <div className="inner__nav">
         <ul>
           <li className="nav__panel">
             <div className="airbnBoats__home">

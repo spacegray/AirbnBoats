@@ -44,10 +44,11 @@ function Navigation({ isLoaded }) {
         <nav
           style={{
             display: "flex",
-            backgroundColor: "#F0F0F0",
+            backgroundColor: "rgba(196, 196, 196)",
             height: "110px",
             width: "100%",
             top: "0px",
+            margin: "0px",
             position: "fixed",
             justifyContent: "flex-end",
             alignItems: "flex-end",
@@ -58,40 +59,14 @@ function Navigation({ isLoaded }) {
           }}
         >
           <li>
-            <NavLink
-              to="/"
-              exact={true}
-              activeClassName="active"
-              style={{
-                display: "flex",
-                color: "#763B2D",
-                decoration: "none",
-                justifyContent: "flex-end",
-                padding: "10px",
-              }}
-            >
-              Home
-            </NavLink>
+            <li>
+              <NavLink className="listing__link" to="/listings">
+                <button> Listings</button>
+              </NavLink>
+              {isLoaded && sessionLinks}
+            </li>
           </li>
-          <li>
-            <NavLink
-              to="/listings"
-              exact={true}
-              activeClassName="active"
-              style={{
-                display: "flex",
-                color: "#763B2D",
-                decoration: "none",
-                justifyContent: "flex-end",
-                padding: "10px",
-              }}
-            >
-              Listings |
-            </NavLink>
-          </li>
-          <li>
-            {/* <LogoutButton /> */}
-          </li>
+          <li>{/* <LogoutButton /> */}</li>
         </nav>
       </>
     );
@@ -120,10 +95,11 @@ function Navigation({ isLoaded }) {
         <nav
           style={{
             display: "flex",
-            backgroundColor: "#F0F0F0",
+            backgroundColor: "rgba(196, 196, 196)",
             height: "110px",
             width: "100%",
             top: "0px",
+            margin: "0px",
             position: "fixed",
             justifyContent: "flex-end",
             alignItems: "flex-end",
@@ -134,7 +110,7 @@ function Navigation({ isLoaded }) {
           }}
         >
           <li>
-            <NavLink
+            {/* <NavLink
               to="/login"
               exact={true}
               activeClassName="active"
@@ -147,7 +123,7 @@ function Navigation({ isLoaded }) {
               }}
             >
               Login |
-            </NavLink>
+            </NavLink> */}
           </li>
           <li>
             <LoginFormModal />

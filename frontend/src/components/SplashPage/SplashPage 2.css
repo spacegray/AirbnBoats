@@ -4,26 +4,8 @@
     display: flex;
     flex-wrap: nowrap;
     flex-basis: 100%;
-    align-content: center;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-.splash {
-justify-content: center;
-    align-content: center;
-    background-size: cover; 
-    background-position: center;
-    background-repeat: repeat;
-}
-img.splash {
-    /* display: flex; */
-    justify-content: center;
-    align-content: center;
-    background-size: cover; 
-    background-position: center;
-    background-repeat: repeat;
-    
+    /* align-content: center;
+    justify-content: center; */
 }
 
 .splash__image {
@@ -31,15 +13,16 @@ img.splash {
     background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1643094914/airbnboats/UNUSUAL-The-Colour-Of-The-Ocean-Will-Change-In-Eighty-Years-Due-To-Climate-Change_pl1fg7.jpg");
     background-size: cover; 
     background-position: center;
-    background-repeat: repeat;
+    
+
 }
 
 .site__quote {
 position: absolute;
 width: 455px;
 height: 52px;
-left: 600px;
-top: 424px;
+left: 473px;
+top: 324px;
 color: #FFFFFF;
 font-family: Montserrat;
 font-style: italic;
@@ -47,5 +30,4 @@ font-weight: 500;
 font-size: 36px;
 line-height: 44px;
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
 }

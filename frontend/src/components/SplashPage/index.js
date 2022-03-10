@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import './SplashPage.css';
+import './SplashPage2.css';
 // const splashImage = require('../../images/splash-bkgrnd.jpg')
 import Footer from '../Footer/index'
-
+import splashImg from './SplashPage2.css'
 
 function SplashPage() {
 

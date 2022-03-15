@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import {BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import SplashPage from "./components/SplashPage";
@@ -23,24 +23,22 @@ function App() {
    <>
      <Navigation isLoaded={isLoaded} />
      {isLoaded && (
-       <BrowserRouter>
-         <Switch>
-           <Route path="/" exact>
-             <SplashPage />
-           </Route>
-           <Route path="/signup">
-             <SignupFormPage />
-           </Route>
-           <Route path="/listings" exact>
-             <BoatListings />
-           </Route>
-           <Route path="/listings/:id">
-             <BoatListingPage />
-           </Route>
-           <Route path="/reviews"></Route>
-         </Switch>
-         <Footer />
-       </BrowserRouter>
+       <Switch>
+         <Route path="/" exact>
+           <SplashPage />
+           <Footer />
+         </Route>
+         <Route path="/signup">
+           <SignupFormPage />
+         </Route>
+         <Route path="/listings" exact>
+           <BoatListings />
+         </Route>
+         <Route path="/listings/:id">
+           <BoatListingPage />
+         </Route>
+         <Route path="/reviews"></Route>
+       </Switch>
      )}
    </>
  );
@@ -49,10 +47,10 @@ return (
   <>
     <Navigation isLoaded={isLoaded} />
     {isLoaded && (
-      <BrowserRouter>
       <Switch>
         <Route path="/" exact>
           <SplashPage />
+          <Footer />
         </Route>
         <Route path="/listings" exact>
           <BoatListings />
@@ -61,8 +59,6 @@ return (
           <BoatListingPage />
         </Route>
       </Switch>
-      <Footer />
-    </BrowserRouter>
     )}
   </>
 );

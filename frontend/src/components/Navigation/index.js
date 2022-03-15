@@ -22,31 +22,13 @@ function Navigation({ isLoaded }) {
 
     return (
       <>
-        <div className="nav-left" style={{ width: "300px" }}>
-          <NavLink to="/" exact={true} activeClassName="active">
-            <img
-              className="airbnboat-logo"
-              src={bnbLogo}
-              alt="abnb-logo"
-              style={{
-                position: "fixed",
-                top: "0",
-                marginLeft: "10px",
-                height: "100px",
-                maxHeight: "100%",
-                maxWidth: "100%",
-                zIndex: "2",
-              }}
-            ></img>
-          </NavLink>
-        </div>
-
         <nav
           style={{
             display: "flex",
             backgroundColor: "rgba(196, 196, 196)",
+            left: "0",
             height: "110px",
-            width: "100%",
+            width: "100vw",
             top: "0px",
             margin: "0px",
             position: "fixed",
@@ -68,6 +50,24 @@ function Navigation({ isLoaded }) {
           </li>
           <li>{/* <LogoutButton /> */}</li>
         </nav>
+          <div className="nav-left" style={{ width: "300px" }}>
+            <NavLink to="/" exact={true} activeClassName="active">
+              <img
+                className="airbnboat-logo"
+                src={bnbLogo}
+                alt="abnb-logo"
+                style={{
+                  position: "fixed",
+                  top: "0",
+                  marginLeft: "0px",
+                  height: "100px",
+                  maxHeight: "100%",
+                  maxWidth: "100%",
+                  zIndex: "2",
+                }}
+              ></img>
+          </NavLink>
+        </div>
       </>
     );
   } else {
@@ -82,7 +82,7 @@ function Navigation({ isLoaded }) {
               style={{
                 position: "fixed",
                 top: "0",
-                marginLeft: "10px",
+                marginLeft: "0px",
                 height: "100px",
                 maxHeight: "100%",
                 maxWidth: "100%",
@@ -99,6 +99,7 @@ function Navigation({ isLoaded }) {
             height: "110px",
             width: "100%",
             top: "0px",
+            left: "0",
             margin: "0px",
             position: "fixed",
             justifyContent: "flex-end",

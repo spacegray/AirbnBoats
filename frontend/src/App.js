@@ -49,6 +49,7 @@ return (
   <>
     <Navigation isLoaded={isLoaded} />
     {isLoaded && (
+      <BrowserRouter>
       <Switch>
         <Route path="/" exact>
           <SplashPage />
@@ -60,6 +61,8 @@ return (
           <BoatListingPage />
         </Route>
       </Switch>
+      <Footer />
+    </BrowserRouter>
     )}
   </>
 );

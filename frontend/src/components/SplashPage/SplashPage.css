@@ -17,15 +17,15 @@ justify-content: center;
     background-position: center;
     background-repeat: repeat;
 }
-img.splash {
-    /* display: flex; */
+/* img.splash {
+
     justify-content: center;
     align-content: center;
     background-size: cover; 
     background-position: center;
     background-repeat: repeat;
     
-}
+} */
 
 /* .splash__image {
     height: 100vh;

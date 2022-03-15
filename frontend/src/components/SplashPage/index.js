@@ -12,14 +12,13 @@ function SplashPage() {
           <div
             className="splash__image"
             styles={{ backgroundImage: `url(${ocean})` }}
-          
             >
           </div>
 
-          {/* <img
+          <img
             className="splash"
             src="https://res.cloudinary.com/dexkxkrfp/image/upload/v1643094914/airbnboats/UNUSUAL-The-Colour-Of-The-Ocean-Will-Change-In-Eighty-Years-Due-To-Climate-Change_pl1fg7.jpg"
-          ></img> */}
+          ></img>
           <div className="site__quote"> Your adventure awaits</div>
         </div>
         <Footer />

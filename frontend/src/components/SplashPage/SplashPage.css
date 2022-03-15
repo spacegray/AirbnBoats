@@ -29,7 +29,7 @@ img.splash {
 
 .splash__image {
     height: 100vh;
-    background: url("https://res.cloudinary.com/dexkxkrfp/image/upload/v1643094914/airbnboats/UNUSUAL-The-Colour-Of-The-Ocean-Will-Change-In-Eighty-Years-Due-To-Climate-Change_pl1fg7.jpg");
+    background: url(./images/ocean.png);
     background-size: cover; 
     background-position: center;
     background-repeat: repeat;

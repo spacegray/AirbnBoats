@@ -4,6 +4,7 @@
     height: 200px;
     left: 0px;
     top: 629px;
+    bottom: 0px fixed;
     width: 100%;
     background: rgba(196, 196, 196, 0.76);
     display: flex;

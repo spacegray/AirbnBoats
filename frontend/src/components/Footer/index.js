@@ -18,6 +18,7 @@ function Footer () {
                 </a>
             </div>
             <div className="footer__name"> Developed by Ayla Basha</div>
+            <div className="footer__name"> © 2021</div>
           </div>
         </div>
       </>

@@ -5,6 +5,7 @@ function Footer () {
     return (
       <>
         <div className="footer">
+          <div className="footer-content">
             <div className="footer__iconSection">
                 <a
                 className="footer__icons"
@@ -17,6 +18,8 @@ function Footer () {
                 </a>
             </div>
             <div className="footer__name"> Developed by Ayla Basha</div>
+            <div className="footer__name"> © 2021</div>
+          </div>
         </div>
       </>
     );

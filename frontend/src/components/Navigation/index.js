@@ -128,7 +128,10 @@ function Navigation({ isLoaded }) {
           </li>
           <li>
             <LoginFormModal />
-            <NavLink to="/signup">Sign Up</NavLink>
+            <NavLink to="/signup">
+              <button>Sign Up</button>
+            </NavLink>
+          
             {/* <NavLink
               to="/sign-up"
               exact={true}

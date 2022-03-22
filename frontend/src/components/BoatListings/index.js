@@ -17,30 +17,43 @@ function BoatListings() {
     }
     return (
       <>
-        <div className="BoatListings__page">
-          <div className="boatList__section">
-            <div className="nav__panel">
-              {boats.map((boat) => {
-                return (
-                  <NavLink key={boat.id} to={`/listings/${boat.id}`}>
-                  <div className="boat__details">
-                    <h2>{boat.name}</h2>
-                    <div className="boat__address">{boat.address}, 
-                    {boat.city}, {boat.state} {boat.country} {boat.zipCode}</div>
-                    <div className='price__section'>
-                      <div className='listing__price'>$ {boat.price} /day </div>
-                   </div>
-                    <div className="boat__image__section">
-                      <div className="boat__image">
-                        <img className="image" src={boat.img} alt=""></img>
-                      </div>
-                      </div>
-                    </div>
-                  </NavLink>
-                );
-              })}
+        <div className="BoatListings__container">
+          <div className="BoatListings__page">
+              <div className="boatList__section">
+                <div className="nav__panel">
+                  {boats.map((boat) => {
+                    return (
+                      <NavLink key={boat.id} to={`/listings/${boat.id}`}>
+                        <div className="boat__details">
+                          <h2>{boat.name}</h2>
+                          <div className="boat__address">
+                            {boat.address},{boat.city}, {boat.state}{" "}
+                            {boat.country} {boat.zipCode}
+                          </div>
+                          <div className="price__section">
+                            <div className="listing__price">
+                              $ {boat.price} /day{" "}
+                            </div>
+                          </div>
+                          <div className="boat__image__section">
+                            <div className="boat__image">
+                              <img className="image" src={boat.img} alt=""></img>
+                            </div>
+                          </div>
+                        </div>
+                      </NavLink>
+                    );
+                  })}
+                </div>
+                  {/* <div className="BoatListings__img">
+                    <img
+                      className="boat-listings-bkgrnd"
+                      src="https://res.cloudinary.com/dexkxkrfp/image/upload/v1647927768/airbnboats/airbnboats-background-imgs/vertical-beach-img-1_usqon9.jpg"
+                      style={{ width: "100vw", height: "", zIndex: "-1" }}
+                    ></img>
+                  </div> */}
+              </div>
             </div>
-          </div>
         </div>
       </>
     );

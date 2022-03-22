@@ -1,11 +1,12 @@
 
 
 .footer {
-    height: 200px;
+    height: 60vh;
     left: 0px;
     top: 629px;
     bottom: 0px fixed;
     width: 100%;
+    margin: 0 auto;
     background: rgba(196, 196, 196, 0.76);
     display: flex;
     flex-direction: column;
